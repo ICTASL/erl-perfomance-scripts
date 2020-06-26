@@ -21,7 +21,7 @@
         <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
           <collectionProp name="Arguments.arguments"/>
         </elementProp>
-        <stringProp name="HTTPSampler.domain">wp.erl.gov.lk</stringProp>
+        <stringProp name="HTTPSampler.domain">wp.${__P(domain,testenv.gov.lk)}</stringProp>
         <stringProp name="HTTPSampler.port"></stringProp>
         <stringProp name="HTTPSampler.protocol">https</stringProp>
         <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -37,7 +37,7 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">${__P(wusers,100)}</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(wusers,1)}</stringProp>
         <stringProp name="ThreadGroup.ramp_time">600</stringProp>
         <longProp name="ThreadGroup.start_time">1370726934000</longProp>
         <longProp name="ThreadGroup.end_time">1370726934000</longProp>
@@ -54,10 +54,10 @@
             <stringProp name="116079">url</stringProp>
           </collectionProp>
           <collectionProp name="UserParameters.thread_values">
-            <collectionProp name="274907742">
-              <stringProp name="1872681091">wp.erl.gov.lk</stringProp>
+            <collectionProp name="-807405570">
+              <stringProp name="-683092566">wp.${__P(domain,testenv.gov.lk)}</stringProp>
               <stringProp name="99617003">https</stringProp>
-              <stringProp name="1872681091">wp.erl.gov.lk</stringProp>
+              <stringProp name="-683092566">wp.${__P(domain,testenv.gov.lk)}</stringProp>
             </collectionProp>
           </collectionProp>
           <boolProp name="UserParameters.per_iteration">false</boolProp>
@@ -67,7 +67,7 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">wp.erl.gov.lk</stringProp>
+          <stringProp name="HTTPSampler.domain">wp.${__P(domain,testenv.gov.lk)}</stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -76,26 +76,6 @@
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </ConfigTestElement>
-        <hashTree/>
-        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="false">
-          <collectionProp name="Arguments.arguments">
-            <elementProp name="host" elementType="Argument">
-              <stringProp name="Argument.name">host</stringProp>
-              <stringProp name="Argument.value">wp.erl.gov.lk</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="scheme" elementType="Argument">
-              <stringProp name="Argument.name">scheme</stringProp>
-              <stringProp name="Argument.value">https</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="url" elementType="Argument">
-              <stringProp name="Argument.name">url</stringProp>
-              <stringProp name="Argument.value">wp.erl.gov.lk</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-          </collectionProp>
-        </Arguments>
         <hashTree/>
         <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
           <stringProp name="delimiter">,</stringProp>
@@ -792,6 +772,16 @@
                 <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
                   <stringProp name="ConstantTimer.delay">2000</stringProp>
                 </ConstantTimer>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="-647916078">DMT update request sent successfully.</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">2</intProp>
+                </ResponseAssertion>
                 <hashTree/>
               </hashTree>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
@@ -1510,7 +1500,7 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">${__P(cusers,50)}</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(cusers,1)}</stringProp>
         <stringProp name="ThreadGroup.ramp_time">300</stringProp>
         <longProp name="ThreadGroup.start_time">1370726934000</longProp>
         <longProp name="ThreadGroup.end_time">1370726934000</longProp>
@@ -1527,10 +1517,10 @@
             <stringProp name="116079">url</stringProp>
           </collectionProp>
           <collectionProp name="UserParameters.thread_values">
-            <collectionProp name="700596326">
-              <stringProp name="-849193361">cp.erl.gov.lk</stringProp>
+            <collectionProp name="-1871396900">
+              <stringProp name="864278590">cp.${__P(domain,testenv.gov.lk)}</stringProp>
               <stringProp name="99617003">https</stringProp>
-              <stringProp name="-849193361">cp.erl.gov.lk</stringProp>
+              <stringProp name="864278590">cp.${__P(domain,testenv.gov.lk)}</stringProp>
             </collectionProp>
           </collectionProp>
           <boolProp name="UserParameters.per_iteration">false</boolProp>
@@ -1540,7 +1530,7 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">cp.erl.gov.lk</stringProp>
+          <stringProp name="HTTPSampler.domain">cp.${__P(domain,testenv.gov.lk)}</stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -1549,26 +1539,6 @@
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </ConfigTestElement>
-        <hashTree/>
-        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="false">
-          <collectionProp name="Arguments.arguments">
-            <elementProp name="host" elementType="Argument">
-              <stringProp name="Argument.name">host</stringProp>
-              <stringProp name="Argument.value">cp.erl.gov.lk</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="scheme" elementType="Argument">
-              <stringProp name="Argument.name">scheme</stringProp>
-              <stringProp name="Argument.value">https</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="url" elementType="Argument">
-              <stringProp name="Argument.name">url</stringProp>
-              <stringProp name="Argument.value">cp.erl.gov.lk</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-          </collectionProp>
-        </Arguments>
         <hashTree/>
         <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
           <stringProp name="delimiter">,</stringProp>
@@ -2265,6 +2235,16 @@
                 <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
                   <stringProp name="ConstantTimer.delay">2000</stringProp>
                 </ConstantTimer>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="-647916078">DMT update request sent successfully.</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">2</intProp>
+                </ResponseAssertion>
                 <hashTree/>
               </hashTree>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
@@ -2983,7 +2963,7 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">${__P(nusers,50)}</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(nusers,1)}</stringProp>
         <stringProp name="ThreadGroup.ramp_time">300</stringProp>
         <longProp name="ThreadGroup.start_time">1370726934000</longProp>
         <longProp name="ThreadGroup.end_time">1370726934000</longProp>
@@ -2997,7 +2977,7 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">np.erl.gov.lk</stringProp>
+          <stringProp name="HTTPSampler.domain">np.${__P(domain,testenv.gov.lk)}</stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -3014,34 +2994,14 @@
             <stringProp name="116079">url</stringProp>
           </collectionProp>
           <collectionProp name="UserParameters.thread_values">
-            <collectionProp name="1003060272">
-              <stringProp name="218340858">np.erl.gov.lk</stringProp>
+            <collectionProp name="-1488916786">
+              <stringProp name="227972819">np.${__P(domain,testenv.gov.lk)}</stringProp>
               <stringProp name="99617003">https</stringProp>
-              <stringProp name="218340858">np.erl.gov.lk</stringProp>
+              <stringProp name="227972819">np.${__P(domain,testenv.gov.lk)}</stringProp>
             </collectionProp>
           </collectionProp>
           <boolProp name="UserParameters.per_iteration">false</boolProp>
         </UserParameters>
-        <hashTree/>
-        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="false">
-          <collectionProp name="Arguments.arguments">
-            <elementProp name="host" elementType="Argument">
-              <stringProp name="Argument.name">host</stringProp>
-              <stringProp name="Argument.value">np.erl.gov.lk</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="scheme" elementType="Argument">
-              <stringProp name="Argument.name">scheme</stringProp>
-              <stringProp name="Argument.value">https</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="url" elementType="Argument">
-              <stringProp name="Argument.name">url</stringProp>
-              <stringProp name="Argument.value">np.erl.gov.lk</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-          </collectionProp>
-        </Arguments>
         <hashTree/>
         <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
           <stringProp name="delimiter">,</stringProp>
@@ -3738,6 +3698,16 @@
                 <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
                   <stringProp name="ConstantTimer.delay">2000</stringProp>
                 </ConstantTimer>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="-647916078">DMT update request sent successfully.</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">2</intProp>
+                </ResponseAssertion>
                 <hashTree/>
               </hashTree>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
@@ -4456,7 +4426,7 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">${__P(eusers,50)}</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(eusers,1)}</stringProp>
         <stringProp name="ThreadGroup.ramp_time">300</stringProp>
         <longProp name="ThreadGroup.start_time">1370726934000</longProp>
         <longProp name="ThreadGroup.end_time">1370726934000</longProp>
@@ -4470,7 +4440,7 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">ep.erl.gov.lk</stringProp>
+          <stringProp name="HTTPSampler.domain">ep.${__P(domain,testenv.gov.lk)}</stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -4484,7 +4454,7 @@
           <collectionProp name="Arguments.arguments">
             <elementProp name="host" elementType="Argument">
               <stringProp name="Argument.name">host</stringProp>
-              <stringProp name="Argument.value">ep.erl.gov.lk</stringProp>
+              <stringProp name="Argument.value">ep.${__P(domain,testenv.gov.lk)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
             <elementProp name="scheme" elementType="Argument">
@@ -4494,7 +4464,7 @@
             </elementProp>
             <elementProp name="url" elementType="Argument">
               <stringProp name="Argument.name">url</stringProp>
-              <stringProp name="Argument.value">ep.erl.gov.lk</stringProp>
+              <stringProp name="Argument.value">ep.${__P(domain,testenv.gov.lk)}</stringProp>
               <stringProp name="Argument.metadata">=</stringProp>
             </elementProp>
           </collectionProp>
@@ -4507,10 +4477,10 @@
             <stringProp name="116079">url</stringProp>
           </collectionProp>
           <collectionProp name="UserParameters.thread_values">
-            <collectionProp name="862675280">
-              <stringProp name="-1435999375">ep.erl.gov.lk</stringProp>
+            <collectionProp name="2146434224">
+              <stringProp name="1139038204">ep.${__P(domain,testenv.gov.lk)}</stringProp>
               <stringProp name="99617003">https</stringProp>
-              <stringProp name="-1435999375">ep.erl.gov.lk</stringProp>
+              <stringProp name="1139038204">ep.${__P(domain,testenv.gov.lk)}</stringProp>
             </collectionProp>
           </collectionProp>
           <boolProp name="UserParameters.per_iteration">false</boolProp>
@@ -5199,6 +5169,16 @@
                 <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
                   <stringProp name="ConstantTimer.delay">2000</stringProp>
                 </ConstantTimer>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="-647916078">DMT update request sent successfully.</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">2</intProp>
+                </ResponseAssertion>
                 <hashTree/>
               </hashTree>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
@@ -5929,7 +5909,7 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">${__P(sbusers,50)}</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(sbusers,1)}</stringProp>
         <stringProp name="ThreadGroup.ramp_time">300</stringProp>
         <longProp name="ThreadGroup.start_time">1370726934000</longProp>
         <longProp name="ThreadGroup.end_time">1370726934000</longProp>
@@ -5943,7 +5923,7 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">sg.erl.gov.lk</stringProp>
+          <stringProp name="HTTPSampler.domain">sg.${__P(domain,testenv.gov.lk)}</stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -5960,34 +5940,14 @@
             <stringProp name="116079">url</stringProp>
           </collectionProp>
           <collectionProp name="UserParameters.thread_values">
-            <collectionProp name="398829634">
-              <stringProp name="1884548648">sg.erl.gov.lk</stringProp>
+            <collectionProp name="-1465011036">
+              <stringProp name="-94843931">sg.${__P(domain,testenv.gov.lk)}</stringProp>
               <stringProp name="99617003">https</stringProp>
-              <stringProp name="1884548648">sg.erl.gov.lk</stringProp>
+              <stringProp name="-94843931">sg.${__P(domain,testenv.gov.lk)}</stringProp>
             </collectionProp>
           </collectionProp>
           <boolProp name="UserParameters.per_iteration">false</boolProp>
         </UserParameters>
-        <hashTree/>
-        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="false">
-          <collectionProp name="Arguments.arguments">
-            <elementProp name="host" elementType="Argument">
-              <stringProp name="Argument.name">host</stringProp>
-              <stringProp name="Argument.value">sg.erl.gov.lk</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="scheme" elementType="Argument">
-              <stringProp name="Argument.name">scheme</stringProp>
-              <stringProp name="Argument.value">https</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="url" elementType="Argument">
-              <stringProp name="Argument.name">url</stringProp>
-              <stringProp name="Argument.value">sg.erl.gov.lk</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-          </collectionProp>
-        </Arguments>
         <hashTree/>
         <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
           <stringProp name="delimiter">,</stringProp>
@@ -6684,6 +6644,16 @@
                 <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
                   <stringProp name="ConstantTimer.delay">2000</stringProp>
                 </ConstantTimer>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="-647916078">DMT update request sent successfully.</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">2</intProp>
+                </ResponseAssertion>
                 <hashTree/>
               </hashTree>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
@@ -7402,7 +7372,7 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">${__P(nwusers,50)}</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(nwusers,1)}</stringProp>
         <stringProp name="ThreadGroup.ramp_time">300</stringProp>
         <longProp name="ThreadGroup.start_time">1370726934000</longProp>
         <longProp name="ThreadGroup.end_time">1370726934000</longProp>
@@ -7419,10 +7389,10 @@
             <stringProp name="116079">url</stringProp>
           </collectionProp>
           <collectionProp name="UserParameters.thread_values">
-            <collectionProp name="-734652804">
-              <stringProp name="1121919891">nw.erl.gov.lk</stringProp>
+            <collectionProp name="518952486">
+              <stringProp name="-1611394918">nw.${__P(domain,testenv.gov.lk)}</stringProp>
               <stringProp name="99617003">https</stringProp>
-              <stringProp name="1121919891">nw.erl.gov.lk</stringProp>
+              <stringProp name="-1611394918">nw.${__P(domain,testenv.gov.lk)}</stringProp>
             </collectionProp>
           </collectionProp>
           <boolProp name="UserParameters.per_iteration">false</boolProp>
@@ -7432,7 +7402,7 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">wp.erl.gov.lk</stringProp>
+          <stringProp name="HTTPSampler.domain">nw.${__P(domain,testenv.gov.lk)}</stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -7441,26 +7411,6 @@
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </ConfigTestElement>
-        <hashTree/>
-        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="false">
-          <collectionProp name="Arguments.arguments">
-            <elementProp name="host" elementType="Argument">
-              <stringProp name="Argument.name">host</stringProp>
-              <stringProp name="Argument.value">wp.erl.gov.lk</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="scheme" elementType="Argument">
-              <stringProp name="Argument.name">scheme</stringProp>
-              <stringProp name="Argument.value">https</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="url" elementType="Argument">
-              <stringProp name="Argument.name">url</stringProp>
-              <stringProp name="Argument.value">wp.erl.gov.lk</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-          </collectionProp>
-        </Arguments>
         <hashTree/>
         <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
           <stringProp name="delimiter">,</stringProp>
@@ -8157,6 +8107,16 @@
                 <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
                   <stringProp name="ConstantTimer.delay">2000</stringProp>
                 </ConstantTimer>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="-647916078">DMT update request sent successfully.</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">2</intProp>
+                </ResponseAssertion>
                 <hashTree/>
               </hashTree>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
@@ -8875,7 +8835,7 @@
           <boolProp name="LoopController.continue_forever">false</boolProp>
           <stringProp name="LoopController.loops">1</stringProp>
         </elementProp>
-        <stringProp name="ThreadGroup.num_threads">${__P(ncusers,50)}</stringProp>
+        <stringProp name="ThreadGroup.num_threads">${__P(ncusers,1)}</stringProp>
         <stringProp name="ThreadGroup.ramp_time">300</stringProp>
         <longProp name="ThreadGroup.start_time">1370726934000</longProp>
         <longProp name="ThreadGroup.end_time">1370726934000</longProp>
@@ -8892,10 +8852,10 @@
             <stringProp name="116079">url</stringProp>
           </collectionProp>
           <collectionProp name="UserParameters.thread_values">
-            <collectionProp name="676053890">
-              <stringProp name="-1459734489">nc.erl.gov.lk</stringProp>
+            <collectionProp name="-716197264">
+              <stringProp name="-37459066">nc.${__P(domain,testenv.gov.lk)}</stringProp>
               <stringProp name="99617003">https</stringProp>
-              <stringProp name="-1459734489">nc.erl.gov.lk</stringProp>
+              <stringProp name="-37459066">nc.${__P(domain,testenv.gov.lk)}</stringProp>
             </collectionProp>
           </collectionProp>
           <boolProp name="UserParameters.per_iteration">false</boolProp>
@@ -8905,7 +8865,7 @@
           <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
             <collectionProp name="Arguments.arguments"/>
           </elementProp>
-          <stringProp name="HTTPSampler.domain">wp.erl.gov.lk</stringProp>
+          <stringProp name="HTTPSampler.domain">nc.${__P(domain,testenv.gov.lk)}</stringProp>
           <stringProp name="HTTPSampler.port"></stringProp>
           <stringProp name="HTTPSampler.protocol">https</stringProp>
           <stringProp name="HTTPSampler.contentEncoding"></stringProp>
@@ -8914,26 +8874,6 @@
           <stringProp name="HTTPSampler.connect_timeout"></stringProp>
           <stringProp name="HTTPSampler.response_timeout"></stringProp>
         </ConfigTestElement>
-        <hashTree/>
-        <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="false">
-          <collectionProp name="Arguments.arguments">
-            <elementProp name="host" elementType="Argument">
-              <stringProp name="Argument.name">host</stringProp>
-              <stringProp name="Argument.value">wp.erl.gov.lk</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="scheme" elementType="Argument">
-              <stringProp name="Argument.name">scheme</stringProp>
-              <stringProp name="Argument.value">https</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-            <elementProp name="url" elementType="Argument">
-              <stringProp name="Argument.name">url</stringProp>
-              <stringProp name="Argument.value">wp.erl.gov.lk</stringProp>
-              <stringProp name="Argument.metadata">=</stringProp>
-            </elementProp>
-          </collectionProp>
-        </Arguments>
         <hashTree/>
         <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
           <stringProp name="delimiter">,</stringProp>
@@ -9630,6 +9570,16 @@
                 <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
                   <stringProp name="ConstantTimer.delay">2000</stringProp>
                 </ConstantTimer>
+                <hashTree/>
+                <ResponseAssertion guiclass="AssertionGui" testclass="ResponseAssertion" testname="Response Assertion" enabled="true">
+                  <collectionProp name="Asserion.test_strings">
+                    <stringProp name="-647916078">DMT update request sent successfully.</stringProp>
+                  </collectionProp>
+                  <stringProp name="Assertion.custom_message"></stringProp>
+                  <stringProp name="Assertion.test_field">Assertion.response_data</stringProp>
+                  <boolProp name="Assertion.assume_success">false</boolProp>
+                  <intProp name="Assertion.test_type">2</intProp>
+                </ResponseAssertion>
                 <hashTree/>
               </hashTree>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
