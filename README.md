@@ -1,4 +1,4 @@
-# erl-perfomance-scripts
+# erl-perfomance-scripts Guide
 
 1.	Run scripts in “headless” mode
 2.	Pass user/thread count as a parameter from command line
