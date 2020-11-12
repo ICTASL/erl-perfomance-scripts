@@ -582,7 +582,7 @@
                 <stringProp name="variableNames">VEHICLENUMBER</stringProp>
               </CSVDataSet>
               <hashTree/>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Search Vehicle" enabled="true">
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Search Vehicle ${VEHICLENUMBER}" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="vehicleRegNo" elementType="HTTPArgument">
@@ -2045,7 +2045,7 @@
                 <stringProp name="variableNames">VEHICLENUMBER</stringProp>
               </CSVDataSet>
               <hashTree/>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Search Vehicle" enabled="true">
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Search Vehicle ${VEHICLENUMBER}" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="vehicleRegNo" elementType="HTTPArgument">
@@ -3508,7 +3508,7 @@
                 <stringProp name="variableNames">VEHICLENUMBER</stringProp>
               </CSVDataSet>
               <hashTree/>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Search Vehicle" enabled="true">
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Search Vehicle ${VEHICLENUMBER}" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="vehicleRegNo" elementType="HTTPArgument">
@@ -4979,7 +4979,7 @@
                 <stringProp name="variableNames">VEHICLENUMBER</stringProp>
               </CSVDataSet>
               <hashTree/>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Search Vehicle" enabled="true">
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Search Vehicle ${VEHICLENUMBER}" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="vehicleRegNo" elementType="HTTPArgument">
@@ -6454,7 +6454,7 @@
                 <stringProp name="variableNames">VEHICLENUMBER</stringProp>
               </CSVDataSet>
               <hashTree/>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Search Vehicle" enabled="true">
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Search Vehicle ${VEHICLENUMBER}" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="vehicleRegNo" elementType="HTTPArgument">
@@ -7917,7 +7917,7 @@
                 <stringProp name="variableNames">VEHICLENUMBER</stringProp>
               </CSVDataSet>
               <hashTree/>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Search Vehicle" enabled="true">
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Search Vehicle ${VEHICLENUMBER}" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="vehicleRegNo" elementType="HTTPArgument">
@@ -9380,7 +9380,7 @@
                 <stringProp name="variableNames">VEHICLENUMBER</stringProp>
               </CSVDataSet>
               <hashTree/>
-              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Search Vehicle" enabled="true">
+              <HTTPSamplerProxy guiclass="HttpTestSampleGui" testclass="HTTPSamplerProxy" testname="Search Vehicle ${VEHICLENUMBER}" enabled="true">
                 <elementProp name="HTTPsampler.Arguments" elementType="Arguments" guiclass="HTTPArgumentsPanel" testclass="Arguments" enabled="true">
                   <collectionProp name="Arguments.arguments">
                     <elementProp name="vehicleRegNo" elementType="HTTPArgument">
