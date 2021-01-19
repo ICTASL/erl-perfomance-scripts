@@ -332,7 +332,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">3000</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -498,7 +498,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">3000</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -567,7 +567,7 @@
             </hashTree>
             <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
               <boolProp name="LoopController.continue_forever">true</boolProp>
-              <stringProp name="LoopController.loops">160</stringProp>
+              <stringProp name="LoopController.loops">700</stringProp>
             </LoopController>
             <hashTree>
               <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
@@ -668,6 +668,16 @@
                   <stringProp name="HtmlExtractor.refname">EXPIRE</stringProp>
                   <stringProp name="HtmlExtractor.expr">#insuranceExpiryDate</stringProp>
                   <stringProp name="HtmlExtractor.attribute">value</stringProp>
+                  <stringProp name="HtmlExtractor.default">HI</stringProp>
+                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                  <stringProp name="HtmlExtractor.match_number"></stringProp>
+                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
+                </HtmlExtractor>
+                <hashTree/>
+                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="STATUS" enabled="true">
+                  <stringProp name="HtmlExtractor.refname">STATUS</stringProp>
+                  <stringProp name="HtmlExtractor.expr">#btn_LicenceStateExpired</stringProp>
+                  <stringProp name="HtmlExtractor.attribute"></stringProp>
                   <stringProp name="HtmlExtractor.default">HI</stringProp>
                   <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
                   <stringProp name="HtmlExtractor.match_number"></stringProp>
@@ -958,6 +968,16 @@
                   <stringProp name="HtmlExtractor.expr">#settlePayment_totalPayment</stringProp>
                   <stringProp name="HtmlExtractor.attribute">value</stringProp>
                   <stringProp name="HtmlExtractor.default">0.00</stringProp>
+                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                  <stringProp name="HtmlExtractor.match_number"></stringProp>
+                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
+                </HtmlExtractor>
+                <hashTree/>
+                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="VALIDITY" enabled="true">
+                  <stringProp name="HtmlExtractor.refname">VALIDITY</stringProp>
+                  <stringProp name="HtmlExtractor.expr">#btn_LicenceStateVerified</stringProp>
+                  <stringProp name="HtmlExtractor.attribute"></stringProp>
+                  <stringProp name="HtmlExtractor.default">UNDEFINED</stringProp>
                   <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
                   <stringProp name="HtmlExtractor.match_number"></stringProp>
                   <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
@@ -1274,11 +1294,35 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
+                <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <boolProp name="resetInterpreter">false</boolProp>
+                  <stringProp name="script">import org.apache.jmeter.services.FileServer;
+
+String path=FileServer.getFileServer().getBaseDir();
+
+var1= vars.get(&quot;VEHICLENUMBER&quot;); 
+var2= vars.get(&quot;USERNAME&quot;);
+var3= vars.get(&quot;EXPIRE&quot;); 
+var4= vars.get(&quot;STATUS&quot;);
+var5= vars.get(&quot;VALIDITY&quot;); 
+var8 = var1+&quot;,&quot;+var2+&quot;,&quot;+var3+&quot;,&quot;+var4+&quot;,&quot;+var5;
+
+f = new FileOutputStream(&quot;westerndata.csv&quot;,true);
+p = new PrintStream(f);
+ 
+this.interpreter.setOut(p); 
+p.println(var8);
+
+f.close();</stringProp>
+                </BeanShellPreProcessor>
+                <hashTree/>
               </hashTree>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">6000</stringProp>
+                <stringProp name="ActionProcessor.duration">5000</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -1344,7 +1388,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">3000</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -1379,7 +1423,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">3000</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -2030,7 +2074,7 @@
             </hashTree>
             <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
               <boolProp name="LoopController.continue_forever">true</boolProp>
-              <stringProp name="LoopController.loops">120</stringProp>
+              <stringProp name="LoopController.loops">500</stringProp>
             </LoopController>
             <hashTree>
               <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
@@ -2131,6 +2175,16 @@
                   <stringProp name="HtmlExtractor.refname">EXPIRE</stringProp>
                   <stringProp name="HtmlExtractor.expr">#insuranceExpiryDate</stringProp>
                   <stringProp name="HtmlExtractor.attribute">value</stringProp>
+                  <stringProp name="HtmlExtractor.default">HI</stringProp>
+                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                  <stringProp name="HtmlExtractor.match_number"></stringProp>
+                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
+                </HtmlExtractor>
+                <hashTree/>
+                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="STATUS" enabled="true">
+                  <stringProp name="HtmlExtractor.refname">STATUS</stringProp>
+                  <stringProp name="HtmlExtractor.expr">#btn_LicenceStateExpired</stringProp>
+                  <stringProp name="HtmlExtractor.attribute"></stringProp>
                   <stringProp name="HtmlExtractor.default">HI</stringProp>
                   <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
                   <stringProp name="HtmlExtractor.match_number"></stringProp>
@@ -2421,6 +2475,16 @@
                   <stringProp name="HtmlExtractor.expr">#settlePayment_totalPayment</stringProp>
                   <stringProp name="HtmlExtractor.attribute">value</stringProp>
                   <stringProp name="HtmlExtractor.default">0.00</stringProp>
+                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                  <stringProp name="HtmlExtractor.match_number"></stringProp>
+                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
+                </HtmlExtractor>
+                <hashTree/>
+                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="VALIDITY" enabled="true">
+                  <stringProp name="HtmlExtractor.refname">VALIDITY</stringProp>
+                  <stringProp name="HtmlExtractor.expr">#btn_LicenceStateVerified</stringProp>
+                  <stringProp name="HtmlExtractor.attribute"></stringProp>
+                  <stringProp name="HtmlExtractor.default">UNDEFINED</stringProp>
                   <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
                   <stringProp name="HtmlExtractor.match_number"></stringProp>
                   <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
@@ -2736,6 +2800,30 @@
                     </elementProp>
                   </collectionProp>
                 </HeaderManager>
+                <hashTree/>
+                <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <boolProp name="resetInterpreter">false</boolProp>
+                  <stringProp name="script">import org.apache.jmeter.services.FileServer;
+
+String path=FileServer.getFileServer().getBaseDir();
+
+var1= vars.get(&quot;VEHICLENUMBER&quot;); 
+var2= vars.get(&quot;USERNAME&quot;);
+var3= vars.get(&quot;EXPIRE&quot;); 
+var4= vars.get(&quot;STATUS&quot;);
+var5= vars.get(&quot;VALIDITY&quot;); 
+var8 = var1+&quot;,&quot;+var2+&quot;,&quot;+var3+&quot;,&quot;+var4+&quot;,&quot;+var5;
+
+f = new FileOutputStream(&quot;centraldata.csv&quot;,true);
+p = new PrintStream(f);
+ 
+this.interpreter.setOut(p); 
+p.println(var8);
+
+f.close();</stringProp>
+                </BeanShellPreProcessor>
                 <hashTree/>
               </hashTree>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
@@ -3493,7 +3581,7 @@
             </hashTree>
             <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
               <boolProp name="LoopController.continue_forever">true</boolProp>
-              <stringProp name="LoopController.loops">120</stringProp>
+              <stringProp name="LoopController.loops">500</stringProp>
             </LoopController>
             <hashTree>
               <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
@@ -3594,6 +3682,16 @@
                   <stringProp name="HtmlExtractor.refname">EXPIRE</stringProp>
                   <stringProp name="HtmlExtractor.expr">#insuranceExpiryDate</stringProp>
                   <stringProp name="HtmlExtractor.attribute">value</stringProp>
+                  <stringProp name="HtmlExtractor.default">HI</stringProp>
+                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                  <stringProp name="HtmlExtractor.match_number"></stringProp>
+                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
+                </HtmlExtractor>
+                <hashTree/>
+                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="STATUS" enabled="true">
+                  <stringProp name="HtmlExtractor.refname">STATUS</stringProp>
+                  <stringProp name="HtmlExtractor.expr">#btn_LicenceStateExpired</stringProp>
+                  <stringProp name="HtmlExtractor.attribute"></stringProp>
                   <stringProp name="HtmlExtractor.default">HI</stringProp>
                   <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
                   <stringProp name="HtmlExtractor.match_number"></stringProp>
@@ -3884,6 +3982,16 @@
                   <stringProp name="HtmlExtractor.expr">#settlePayment_totalPayment</stringProp>
                   <stringProp name="HtmlExtractor.attribute">value</stringProp>
                   <stringProp name="HtmlExtractor.default">0.00</stringProp>
+                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                  <stringProp name="HtmlExtractor.match_number"></stringProp>
+                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
+                </HtmlExtractor>
+                <hashTree/>
+                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="VALIDITY" enabled="true">
+                  <stringProp name="HtmlExtractor.refname">VALIDITY</stringProp>
+                  <stringProp name="HtmlExtractor.expr">#btn_LicenceStateVerified</stringProp>
+                  <stringProp name="HtmlExtractor.attribute"></stringProp>
+                  <stringProp name="HtmlExtractor.default">UNDEFINED</stringProp>
                   <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
                   <stringProp name="HtmlExtractor.match_number"></stringProp>
                   <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
@@ -4199,6 +4307,30 @@
                     </elementProp>
                   </collectionProp>
                 </HeaderManager>
+                <hashTree/>
+                <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <boolProp name="resetInterpreter">false</boolProp>
+                  <stringProp name="script">import org.apache.jmeter.services.FileServer;
+
+String path=FileServer.getFileServer().getBaseDir();
+
+var1= vars.get(&quot;VEHICLENUMBER&quot;); 
+var2= vars.get(&quot;USERNAME&quot;);
+var3= vars.get(&quot;EXPIRE&quot;); 
+var4= vars.get(&quot;STATUS&quot;);
+var5= vars.get(&quot;VALIDITY&quot;); 
+var8 = var1+&quot;,&quot;+var2+&quot;,&quot;+var3+&quot;,&quot;+var4+&quot;,&quot;+var5;
+
+f = new FileOutputStream(&quot;notherndata.csv&quot;,true);
+p = new PrintStream(f);
+ 
+this.interpreter.setOut(p); 
+p.println(var8);
+
+f.close();</stringProp>
+                </BeanShellPreProcessor>
                 <hashTree/>
               </hashTree>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
@@ -4964,7 +5096,7 @@
             </hashTree>
             <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
               <boolProp name="LoopController.continue_forever">true</boolProp>
-              <stringProp name="LoopController.loops">120</stringProp>
+              <stringProp name="LoopController.loops">500</stringProp>
             </LoopController>
             <hashTree>
               <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
@@ -5065,6 +5197,16 @@
                   <stringProp name="HtmlExtractor.refname">EXPIRE</stringProp>
                   <stringProp name="HtmlExtractor.expr">#insuranceExpiryDate</stringProp>
                   <stringProp name="HtmlExtractor.attribute">value</stringProp>
+                  <stringProp name="HtmlExtractor.default">HI</stringProp>
+                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                  <stringProp name="HtmlExtractor.match_number"></stringProp>
+                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
+                </HtmlExtractor>
+                <hashTree/>
+                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="STATUS" enabled="true">
+                  <stringProp name="HtmlExtractor.refname">STATUS</stringProp>
+                  <stringProp name="HtmlExtractor.expr">#btn_LicenceStateExpired</stringProp>
+                  <stringProp name="HtmlExtractor.attribute"></stringProp>
                   <stringProp name="HtmlExtractor.default">HI</stringProp>
                   <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
                   <stringProp name="HtmlExtractor.match_number"></stringProp>
@@ -5355,6 +5497,16 @@
                   <stringProp name="HtmlExtractor.expr">#settlePayment_totalPayment</stringProp>
                   <stringProp name="HtmlExtractor.attribute">value</stringProp>
                   <stringProp name="HtmlExtractor.default">0.00</stringProp>
+                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                  <stringProp name="HtmlExtractor.match_number"></stringProp>
+                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
+                </HtmlExtractor>
+                <hashTree/>
+                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="VALIDITY" enabled="true">
+                  <stringProp name="HtmlExtractor.refname">VALIDITY</stringProp>
+                  <stringProp name="HtmlExtractor.expr">#btn_LicenceStateVerified</stringProp>
+                  <stringProp name="HtmlExtractor.attribute"></stringProp>
+                  <stringProp name="HtmlExtractor.default">UNDEFINED</stringProp>
                   <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
                   <stringProp name="HtmlExtractor.match_number"></stringProp>
                   <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
@@ -5670,6 +5822,30 @@
                     </elementProp>
                   </collectionProp>
                 </HeaderManager>
+                <hashTree/>
+                <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <boolProp name="resetInterpreter">false</boolProp>
+                  <stringProp name="script">import org.apache.jmeter.services.FileServer;
+
+String path=FileServer.getFileServer().getBaseDir();
+
+var1= vars.get(&quot;VEHICLENUMBER&quot;); 
+var2= vars.get(&quot;USERNAME&quot;);
+var3= vars.get(&quot;EXPIRE&quot;); 
+var4= vars.get(&quot;STATUS&quot;);
+var5= vars.get(&quot;VALIDITY&quot;); 
+var8 = var1+&quot;,&quot;+var2+&quot;,&quot;+var3+&quot;,&quot;+var4+&quot;,&quot;+var5;
+
+f = new FileOutputStream(&quot;easterndata.csv&quot;,true);
+p = new PrintStream(f);
+ 
+this.interpreter.setOut(p); 
+p.println(var8);
+
+f.close();</stringProp>
+                </BeanShellPreProcessor>
                 <hashTree/>
               </hashTree>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
@@ -6439,7 +6615,7 @@
             </hashTree>
             <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
               <boolProp name="LoopController.continue_forever">true</boolProp>
-              <stringProp name="LoopController.loops">120</stringProp>
+              <stringProp name="LoopController.loops">500</stringProp>
             </LoopController>
             <hashTree>
               <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
@@ -6540,6 +6716,16 @@
                   <stringProp name="HtmlExtractor.refname">EXPIRE</stringProp>
                   <stringProp name="HtmlExtractor.expr">#insuranceExpiryDate</stringProp>
                   <stringProp name="HtmlExtractor.attribute">value</stringProp>
+                  <stringProp name="HtmlExtractor.default">HI</stringProp>
+                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                  <stringProp name="HtmlExtractor.match_number"></stringProp>
+                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
+                </HtmlExtractor>
+                <hashTree/>
+                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="STATUS" enabled="true">
+                  <stringProp name="HtmlExtractor.refname">STATUS</stringProp>
+                  <stringProp name="HtmlExtractor.expr">#btn_LicenceStateExpired</stringProp>
+                  <stringProp name="HtmlExtractor.attribute"></stringProp>
                   <stringProp name="HtmlExtractor.default">HI</stringProp>
                   <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
                   <stringProp name="HtmlExtractor.match_number"></stringProp>
@@ -6830,6 +7016,16 @@
                   <stringProp name="HtmlExtractor.expr">#settlePayment_totalPayment</stringProp>
                   <stringProp name="HtmlExtractor.attribute">value</stringProp>
                   <stringProp name="HtmlExtractor.default">0.00</stringProp>
+                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                  <stringProp name="HtmlExtractor.match_number"></stringProp>
+                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
+                </HtmlExtractor>
+                <hashTree/>
+                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="VALIDITY" enabled="true">
+                  <stringProp name="HtmlExtractor.refname">VALIDITY</stringProp>
+                  <stringProp name="HtmlExtractor.expr">#btn_LicenceStateVerified</stringProp>
+                  <stringProp name="HtmlExtractor.attribute"></stringProp>
+                  <stringProp name="HtmlExtractor.default">UNDEFINED</stringProp>
                   <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
                   <stringProp name="HtmlExtractor.match_number"></stringProp>
                   <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
@@ -7145,6 +7341,30 @@
                     </elementProp>
                   </collectionProp>
                 </HeaderManager>
+                <hashTree/>
+                <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <boolProp name="resetInterpreter">false</boolProp>
+                  <stringProp name="script">import org.apache.jmeter.services.FileServer;
+
+String path=FileServer.getFileServer().getBaseDir();
+
+var1= vars.get(&quot;VEHICLENUMBER&quot;); 
+var2= vars.get(&quot;USERNAME&quot;);
+var3= vars.get(&quot;EXPIRE&quot;); 
+var4= vars.get(&quot;STATUS&quot;);
+var5= vars.get(&quot;VALIDITY&quot;); 
+var8 = var1+&quot;,&quot;+var2+&quot;,&quot;+var3+&quot;,&quot;+var4+&quot;,&quot;+var5;
+
+f = new FileOutputStream(&quot;sbdata.csv&quot;,true);
+p = new PrintStream(f);
+ 
+this.interpreter.setOut(p); 
+p.println(var8);
+
+f.close();</stringProp>
+                </BeanShellPreProcessor>
                 <hashTree/>
               </hashTree>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
@@ -7902,7 +8122,7 @@
             </hashTree>
             <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
               <boolProp name="LoopController.continue_forever">true</boolProp>
-              <stringProp name="LoopController.loops">120</stringProp>
+              <stringProp name="LoopController.loops">500</stringProp>
             </LoopController>
             <hashTree>
               <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
@@ -8003,6 +8223,16 @@
                   <stringProp name="HtmlExtractor.refname">EXPIRE</stringProp>
                   <stringProp name="HtmlExtractor.expr">#insuranceExpiryDate</stringProp>
                   <stringProp name="HtmlExtractor.attribute">value</stringProp>
+                  <stringProp name="HtmlExtractor.default">HI</stringProp>
+                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                  <stringProp name="HtmlExtractor.match_number"></stringProp>
+                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
+                </HtmlExtractor>
+                <hashTree/>
+                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="STATUS" enabled="true">
+                  <stringProp name="HtmlExtractor.refname">STATUS</stringProp>
+                  <stringProp name="HtmlExtractor.expr">#btn_LicenceStateExpired</stringProp>
+                  <stringProp name="HtmlExtractor.attribute"></stringProp>
                   <stringProp name="HtmlExtractor.default">HI</stringProp>
                   <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
                   <stringProp name="HtmlExtractor.match_number"></stringProp>
@@ -8293,6 +8523,16 @@
                   <stringProp name="HtmlExtractor.expr">#settlePayment_totalPayment</stringProp>
                   <stringProp name="HtmlExtractor.attribute">value</stringProp>
                   <stringProp name="HtmlExtractor.default">0.00</stringProp>
+                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                  <stringProp name="HtmlExtractor.match_number"></stringProp>
+                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
+                </HtmlExtractor>
+                <hashTree/>
+                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="VALIDITY" enabled="true">
+                  <stringProp name="HtmlExtractor.refname">VALIDITY</stringProp>
+                  <stringProp name="HtmlExtractor.expr">#btn_LicenceStateVerified</stringProp>
+                  <stringProp name="HtmlExtractor.attribute"></stringProp>
+                  <stringProp name="HtmlExtractor.default">UNDEFINED</stringProp>
                   <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
                   <stringProp name="HtmlExtractor.match_number"></stringProp>
                   <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
@@ -8608,6 +8848,30 @@
                     </elementProp>
                   </collectionProp>
                 </HeaderManager>
+                <hashTree/>
+                <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <boolProp name="resetInterpreter">false</boolProp>
+                  <stringProp name="script">import org.apache.jmeter.services.FileServer;
+
+String path=FileServer.getFileServer().getBaseDir();
+
+var1= vars.get(&quot;VEHICLENUMBER&quot;); 
+var2= vars.get(&quot;USERNAME&quot;);
+var3= vars.get(&quot;EXPIRE&quot;); 
+var4= vars.get(&quot;STATUS&quot;);
+var5= vars.get(&quot;VALIDITY&quot;); 
+var8 = var1+&quot;,&quot;+var2+&quot;,&quot;+var3+&quot;,&quot;+var4+&quot;,&quot;+var5;
+
+f = new FileOutputStream(&quot;nwdata.csv&quot;,true);
+p = new PrintStream(f);
+ 
+this.interpreter.setOut(p); 
+p.println(var8);
+
+f.close();</stringProp>
+                </BeanShellPreProcessor>
                 <hashTree/>
               </hashTree>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
@@ -9365,7 +9629,7 @@
             </hashTree>
             <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
               <boolProp name="LoopController.continue_forever">true</boolProp>
-              <stringProp name="LoopController.loops">120</stringProp>
+              <stringProp name="LoopController.loops">500</stringProp>
             </LoopController>
             <hashTree>
               <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
@@ -9466,6 +9730,16 @@
                   <stringProp name="HtmlExtractor.refname">EXPIRE</stringProp>
                   <stringProp name="HtmlExtractor.expr">#insuranceExpiryDate</stringProp>
                   <stringProp name="HtmlExtractor.attribute">value</stringProp>
+                  <stringProp name="HtmlExtractor.default">HI</stringProp>
+                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                  <stringProp name="HtmlExtractor.match_number"></stringProp>
+                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
+                </HtmlExtractor>
+                <hashTree/>
+                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="STATUS" enabled="true">
+                  <stringProp name="HtmlExtractor.refname">STATUS</stringProp>
+                  <stringProp name="HtmlExtractor.expr">#btn_LicenceStateExpired</stringProp>
+                  <stringProp name="HtmlExtractor.attribute"></stringProp>
                   <stringProp name="HtmlExtractor.default">HI</stringProp>
                   <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
                   <stringProp name="HtmlExtractor.match_number"></stringProp>
@@ -9756,6 +10030,16 @@
                   <stringProp name="HtmlExtractor.expr">#settlePayment_totalPayment</stringProp>
                   <stringProp name="HtmlExtractor.attribute">value</stringProp>
                   <stringProp name="HtmlExtractor.default">0.00</stringProp>
+                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                  <stringProp name="HtmlExtractor.match_number"></stringProp>
+                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
+                </HtmlExtractor>
+                <hashTree/>
+                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="VALIDITY" enabled="true">
+                  <stringProp name="HtmlExtractor.refname">VALIDITY</stringProp>
+                  <stringProp name="HtmlExtractor.expr">#btn_LicenceStateVerified</stringProp>
+                  <stringProp name="HtmlExtractor.attribute"></stringProp>
+                  <stringProp name="HtmlExtractor.default">UNDEFINED</stringProp>
                   <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
                   <stringProp name="HtmlExtractor.match_number"></stringProp>
                   <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
@@ -10071,6 +10355,30 @@
                     </elementProp>
                   </collectionProp>
                 </HeaderManager>
+                <hashTree/>
+                <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <boolProp name="resetInterpreter">false</boolProp>
+                  <stringProp name="script">import org.apache.jmeter.services.FileServer;
+
+String path=FileServer.getFileServer().getBaseDir();
+
+var1= vars.get(&quot;VEHICLENUMBER&quot;); 
+var2= vars.get(&quot;USERNAME&quot;);
+var3= vars.get(&quot;EXPIRE&quot;); 
+var4= vars.get(&quot;STATUS&quot;);
+var5= vars.get(&quot;VALIDITY&quot;); 
+var8 = var1+&quot;,&quot;+var2+&quot;,&quot;+var3+&quot;,&quot;+var4+&quot;,&quot;+var5;
+
+f = new FileOutputStream(&quot;ncdata.csv&quot;,true);
+p = new PrintStream(f);
+ 
+this.interpreter.setOut(p); 
+p.println(var8);
+
+f.close();</stringProp>
+                </BeanShellPreProcessor>
                 <hashTree/>
               </hashTree>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
