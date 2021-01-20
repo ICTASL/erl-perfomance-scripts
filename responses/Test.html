@@ -1,0 +1,2259 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<title>eRevenue Licence</title>
+	<meta http-equiv="Pragma" content="no-cache" />
+	<meta http-equiv="Expires" content="-1" />
+	<meta http-equiv="Cache-Control" content="no-cache" />
+	<meta http-equiv="Cache-Control" content="no-store" />
+	<meta http-equiv="Cache-control" content="must-revalidate" />
+	<meta http-equiv="Cache-control" content="max-age=0" />
+	<link rel="stylesheet" type="text/css" href="css/main.css" />
+	<script src="javascript/popup/dhtmlwindow.js" type="text/javascript">
+	/***********************************************
+	* DHTML Window Widget- © Dynamic Drive (www.dynamicdrive.com)
+	* This notice must stay intact for legal use.
+	* Visit http://www.dynamicdrive.com/ for full source code
+	***********************************************/
+	</script>
+	<script src="javascript/popup/modal.js" type="text/javascript"></script>
+	
+	<script src="javascript/popup/dhtmlwindow2.js" type="text/javascript"></script>
+	<script src="javascript/popup/modal2.js" type="text/javascript"></script>
+	
+	<link rel="stylesheet" type="text/css" href="css/modal/modal.css" />
+	<script type="text/javascript" src="javascript/main.js"></script>
+	<script type="text/javascript">
+		function changePasswordShow() {			
+			divwin=dhtmlmodal.open('divbox', 'div', 'changePasswordOuterDiv', 'eRevenue Licence', 'width=700px,height=260px,center=1,resize=0,scrolling=0');
+		}
+		
+		function changePasswordShow2() {			
+			divwin=dhtmlmodal2.open('divbox2', 'div', 'changePasswordOuterDiv', 'eRevenue Licence', 'width=700px,height=260px,center=1,resize=0,scrolling=0');
+		}
+	</script>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+<script type="text/javascript" src="javascript/currency.js"></script>
+<script type="text/javascript" src="javascript/main.js"></script>
+<script type="text/javascript" src="javascript/shortcut.js"></script>
+<script src="javascript/popup/dhtmlwindow.js" type="text/javascript">
+/***********************************************
+* DHTML Window Widget- © Dynamic Drive (www.dynamicdrive.com)
+* This notice must stay intact for legal use.
+* Visit http://www.dynamicdrive.com/ for full source code
+***********************************************/
+</script>
+<script src="javascript/popup/modal.js" type="text/javascript"></script>
+<link rel="stylesheet" type="text/css" href="css/modal/modal.css" />
+<!--Menu RL -->
+<link rel="stylesheet" href="css/menuRL/style.css" type="text/css" />
+<!--[if lte IE 7]>
+<link rel="stylesheet" type="text/css" href="css/menuRL/ie.css" media="screen" />
+<![endif]-->
+
+<!-- + Key Navigation support -->
+<script src="javascript/keyNavigation.js" type="text/javascript"></script>
+<script type="text/javascript" >
+/* 
+ * Array containing all fields to be navigated by the + key, in order.
+ * Assume that all fields are enabled/visible.
+ */
+var initialFine = 0.00;
+var navigationFields = ['currentRevLicenseRecord.vetNo', 
+                        'insuranceExpiryDate', 
+                        'currentRevLicenseRecord.fitnessTestStatus', 
+                        'currentRevLicenseRecord.routePermitNo', 
+                        'routePermitExpiryDate', 
+                        'butIssueLicence', 
+                        'butCreateQuote', 
+                        'butPayArrearsOnly',
+                        'butApprove', 
+                        'butPrintLooseSlip',
+                        'butCancelLicence',
+                        'butQuoteAdd',
+                        'butQuoteBack',
+                        'previousLic'];
+var doNotStop = null;
+var keyNav;
+
+var vehicleLicenceStatus = '';
+
+
+function loadKeyNav() {
+	keyNav = new KeyNavigation(navigationFields, doNotStop);
+}
+
+window.onload = loadKeyNav();
+</script>
+
+
+<script type="text/javascript">
+shortcut.add("F8",function() {
+	winOpen('currentDashboardShow.action', '_self');
+});
+</script>
+
+<script language="javascript" type="text/javascript">
+
+function viewMore() {
+document.getElementById("viewLess").style.display="none";
+document.getElementById("viewMore").style.display="block";
+document.getElementById("butViewLess").style.display="inline";
+document.getElementById("butViewMore").style.display="none";
+}
+
+function viewLess() {
+document.getElementById("viewLess").style.display="block";
+document.getElementById("viewMore").style.display="none";
+document.getElementById("butViewMore").style.display="inline";
+document.getElementById("butViewLess").style.display="none";
+}
+
+function printLooseSlip() {
+	divwin=dhtmlmodal.open('divbox', 'div', 'authority', 'eRevenue Licence', 'width=450px,height=210px,left=200px,top=150px,resize=0,scrolling=0'); return false;
+}
+
+function submitPrintLoosSlipForm(){
+  document.getElementById("printLooseSlipForm").submit();
+}
+
+function checkIsReissuence() {
+	
+	if(!document.getElementById("specialLicenceStatus[0]").checked 
+		&& !document.getElementById("specialLicenceStatus[1]").checked
+		&& !document.getElementById("specialLicenceStatus[2]").checked
+		&& !document.getElementById("specialLicenceStatus[3]").checked){
+		if (vehicleLicenceStatus == 'REVENUE_LICENCE_STATUS_VALID'){
+			 divWinReconfiramtion=dhtmlmodal.open('divbox', 'div', 'reissuenceConfirmation', 'eRevenue Licence', 'width=705px,height=50px,center=1,resize=0,scrolling=0'); return false;		
+		}else{
+			issueLicence();
+		}
+	}else {
+			issueLicence();
+		}
+}
+
+function showLooseSlipPrintPreview() {
+    divwin=dhtmlmodal.open('divbox', 'div', 'displayLoosSlipPringPreview', 'eRevenue Licence', 'width=705px,height=530px,center=1,resize=0,scrolling=0'); return false;
+}
+
+function fineRemove() {
+	document.getElementById("fineRemoveForm").submit();
+}
+
+function editFineRemove() {
+	var currentFine = parseFloat((document.getElementById("currentRevLicenseRecord.fine").value).replace(/,/gi,""));
+	if(currentFine >= initialFine) {
+		document.getElementById("fineRemoveForm").submit();
+		initialFine = currentFine;
+	} else {
+		var msg = document.getElementById("msg").value;
+		alert(msg);
+	}
+}
+
+function issueLicence() {
+	document.getElementById("issueRevLicForm").submit();
+}
+
+function createQuoteInit() {
+	var quoteForm = document.getElementById("issueRevLicForm");
+	quoteForm.action = "createQuoteInit.action";
+	quoteForm.submit();
+}
+
+function addVehicleToQuoteSaveInit() {
+	var quoteForm = document.getElementById("issueRevLicForm");
+	quoteForm.action = "addVehicleToQuoteSaveInit.action";
+	quoteForm.submit();
+}
+
+function addOverrideVehicle() {
+	document.getElementById("overrideVehicle").value = "true";
+	document.getElementById("overrideVehicleForm").submit();
+}
+
+function doEligible() {
+	document.getElementById("doEligibleForm").submit();
+}
+
+function validateVETShow() {			
+	divwin=dhtmlmodal.open('divbox', 'div', 'validateVETOuterDiv', 'eRevenue Licence', 'width=600px,height=155px,center=1,resize=0,scrolling=0');
+}
+
+function validateInsuranceShow() {
+	divwin=dhtmlmodal.open('divbox', 'div', 'validateInsuranceOuterDiv', 'eRevenue Licence', 'width=600px,height=155px,center=1,resize=0,scrolling=0');
+}
+
+</script>
+
+<script type="text/javascript">
+function unCheckOthers(element) {
+	 arraySize = 5;
+
+	var set = new Array(arraySize);
+	
+	for (var i = 0; i < arraySize; i++) {
+		set[i] = document.getElementsByName("ineligibleReasonIds[" + i + "]")[0];
+	}
+
+	for (var i = 0; i < arraySize; i ++) {
+		if (set[i].checked && element != set[i]) {
+			set[i].checked = false;
+		}	
+	}
+
+		
+}
+
+function blacklistingUncheck(element) {
+	 arraySize = 1;
+
+	var set = new Array(arraySize);
+	
+	for (var i = 0; i < arraySize; i++) {
+		set[i] = document.getElementsByName("blacklistedReasonIds[" + i + "]")[0];
+	}
+
+	for (var i = 0; i < arraySize; i ++) {
+		if (set[i].checked && element != set[i]) {
+			set[i].checked = false;
+		}	
+	}	
+}
+
+function enableBlackListingOption() {
+	 arraySize = 1;
+
+	for (var i = 0; i < arraySize; i++) {
+		var element = document.getElementsByName("blacklistedReasonIds[" + i + "]")[0];
+		element.disabled = false;
+	}
+
+	document.getElementById("editBlackListing").style.display="none"; 
+	document.getElementById("saveBlackListing").style.display="inline"; 
+}
+
+function addComment(comment, formElement){
+	var commentField = document.createElement("input");
+	commentField.setAttribute("type","hidden");
+	commentField.setAttribute("value",comment);
+	commentField.setAttribute("name","comment");
+
+	document.getElementById(formElement).appendChild(commentField);
+}
+
+function doIneligible() {
+
+	 arraySize = 5;
+
+	var set = new Array(arraySize);
+	
+	for (var i = 0; i < arraySize; i++) {
+		set[i] = document.getElementsByName("ineligibleReasonIds[" + i + "]")[0];
+	}
+	
+	flag = false;
+	
+	for (var i = 0; i < arraySize; i ++) {
+		if (set[i].checked) {
+			flag = true;
+		}	
+	}
+
+	if (!flag) {
+		divwin=dhtmlmodal.open('divbox', 'div', 'selectIneligibleReason', 'eRevenue Licence', 'width=450px,center=1,top=100px,resize=0,scrolling=0');
+		return;
+	} else {
+		addComment(document.getElementById("reason").value, "ineligibleForm");
+		document.getElementById("ineligibleForm").submit();
+	}
+}
+
+function blacklistVehicle() {
+	document.getElementById("editBlackListing").style.display="inline"; 
+	document.getElementById("saveBlackListing").style.display="none"; 
+	
+	addComment(document.getElementById("reason").value, "blacklisingForm");
+
+	document.getElementById("blacklisingForm").submit();
+	arraySize = 1;
+
+	for (var i = 0; i < arraySize; i++) {
+		var element = document.getElementsByName("blacklistedReasonIds[" + i + "]")[0];
+		element.disabled = true;
+	}
+}
+
+function ineligibleOk() {
+divwin.hide();return false;
+}
+</script>
+
+
+<script type="text/javascript">
+function enVehicleInfo() {
+document.getElementById("vehicle.vehicleOwner.name").readOnly = false;
+document.getElementById("vehicle.vehicleOwner.name").select();
+document.getElementById("vehicle.vehicleOwner.addr1").readOnly= false;
+document.getElementById("vehicle.vehicleOwner.addr2").readOnly= false;
+document.getElementById("vehicle.vehicleOwner.city").readOnly= false;
+document.getElementById("vehicle.chassisNo").readOnly= false;
+document.getElementById("vehicle.tareWeight").readOnly= false;
+document.getElementById("vehicle.authority.authorityId").disabled=false;
+document.getElementById("vehicle.engineNo").readOnly= false;
+document.getElementById("vehicle.grossWeight").readOnly= false;
+document.getElementById("vehicle.fuel.fuelId").disabled=false;
+document.getElementById("vehicle.firstRegDate").readOnly= false;
+document.getElementById("vehicle.noOfSeats").readOnly= false;
+document.getElementById("vehicle.vehicleClass.vehicleClassId").disabled=false;
+document.getElementById("editUserInfo").style.display="none"; 
+document.getElementById("saveUserInfo").style.display="inline"; 
+document.getElementById("specialLicenceStatus[0]").disabled=false;
+document.getElementById("specialLicenceStatus[1]").disabled=false;
+document.getElementById("specialLicenceStatus[2]").disabled=false;
+document.getElementById("specialLicenceStatus[3]").disabled=false;
+
+markRequiredAstric(10);
+}
+
+function enableOwnerInformation() {
+	document.getElementById("vehicle.vehicleOwner.name").readOnly = false;
+	document.getElementById("vehicle.vehicleOwner.name").select();
+	document.getElementById("vehicle.vehicleOwner.addr1").readOnly= false;
+	document.getElementById("vehicle.vehicleOwner.addr2").readOnly= false;
+	document.getElementById("vehicle.vehicleOwner.city").readOnly= false;
+	document.getElementById("editUserInfoByOperator").style.display="none"; 
+	document.getElementById("saveUserInfoByOperator").style.display="inline"; 
+
+	markRequiredAstric(4);
+}
+
+function markRequiredAstric(noOfFields) {
+
+	for ( i = 1; i < noOfFields; i++) {
+		document.getElementById("requiredMark" + i).className ='req_field_vis';
+	}
+}
+
+function unCheckOtherCategories(element) {
+	arraySize = 4;
+
+	var set = new Array(arraySize);
+	
+	for (var i = 0; i < arraySize; i++) {
+		set[i] = document.getElementById("specialLicenceStatus[" + i +"]");
+	}
+
+	for (var i = 0; i < arraySize; i ++) {
+		if (set[i].checked && element != set[i]) {
+			set[i].checked = false;
+		}	
+	}	
+}
+
+function disVehicleInfoOnComment() {
+	document.getElementById("vehicleInformation").submit();
+}
+
+function disVehicleInfo() {
+	document.getElementById("editVehicleInfo").submit();
+}
+
+function getElementsByName_iefix(tag, name) {
+    var elem = document.getElementsByTagName(tag);
+    var arr = new Array();
+
+    for(i = 0,iarr = 0; i < elem.length; i++) {
+    	att = elem[i].getAttribute("name");
+    	if(att == name) {
+    		arr[iarr] = elem[i];
+    		iarr++;
+   		}
+    }
+    return arr;
+}
+
+function syncVehicle() {
+	var syncVehicleButton = document.getElementById("butsyncVehicle");
+	syncVehicleButton.disabled = true;
+	syncVehicleButton.className="btn-disabled btn";
+}
+
+function enableButton() {
+    var syncVehicleButton = document.getElementById("butsyncVehicle");
+    syncVehicleButton.disabled = false;
+    syncVehicleButton.className="btn";
+}
+
+function provinceChangeDo() {
+	var editForm = document.getElementById("editVehicleInfo");
+	editForm.action = 'vehicleProvinceChangeDo.action';
+	editForm.submit();
+	divwin.hide();return false;
+}
+
+
+function setSelectedComment() {
+	var commonCommentsList = document.getElementById('commonComments');
+	var selectedCommentIndex = commonCommentsList.selectedIndex;
+	var selectedComment = commonCommentsList.options[selectedCommentIndex].text;
+	document.getElementById('vehicleInformationUpdateComment').value = selectedComment;
+}
+
+function hidePopup(popup) {
+	var children = popup.getElementsByTagName("*");
+	for (var i = 0; i < children.length; i++) {
+		if (children[i].style) {
+			children[i].style.visibility = "hidden";
+		}
+	}
+
+	popup.style.visibility = "hidden";
+}
+/* 
+ * Array containing all fields to be navigated by the + key, in order.
+ * 
+ */
+ var navigationFieldsInOwnerInfor=['vehicle.vehicleOwner.name',
+                              'vehicle.vehicleOwner.addr1',
+                              'vehicle.vehicleOwner.addr2',
+                              'vehicle.vehicleOwner.city',
+                              'vehicle.chassisNo',
+                              'vehicle.engineNo',
+                              'vehicle.firstRegDate',                              
+                              'vehicle.tareWeight',
+                              'vehicle.grossWeight',
+                              'vehicle.noOfSeats',                              
+                              'vehicle.authority.authorityId',                                                            
+                              'vehicle.fuel.fuelId',                                                           
+                              'vehicle.vehicleClass.vehicleClassId',
+                              'button15',
+                              'button16',
+                              'button17',
+                              'button18',
+                              'button19',
+                              'button20',
+                              'button21',
+                              'button22'                                                                                                                                                                                                                      
+                              ];
+ var doNotStop = null;
+ var keyNavInOwnerInfor;
+ 
+ function loadKeyNavInOwnerInfor() {
+	 keyNavInOwnerInfor = new KeyNavigation(navigationFieldsInOwnerInfor, doNotStop);
+ }
+ window.onload = loadKeyNavInOwnerInfor();
+</script>
+
+
+
+<script type="text/javascript" src="javascript/main.js"></script>
+<script src="javascript/fullscreen.js" type="text/javascript"></script>
+<script type="text/javascript">
+function addRecordShow() {
+	var thisAuthority = document.getElementById("addLicenceForThisAuthority");
+	var otherAuthority=document.getElementById("addLicenceForOtherAuthority");
+	var actionForm = document.getElementById("showAddRevLicenceRecord");
+	//var otherProvince = 
+	if (thisAuthority.checked) { // add licence for this authority
+		actionForm.submit();
+	} else if(otherAuthority.checked){ // add licence for other authority
+		actionForm.action = "addDummyLicenceShow.action";		
+		actionForm.addDummyLicence.value = "true";
+		actionForm.otherAuthoritySelected.value = "true";
+		actionForm.submit();
+		
+	}
+	else{
+		actionForm.action = "addDummyLicenceShow.action";
+		actionForm.addDummyLicence.value = "true";	
+		actionForm.otherProvinceSelected.value = "true";
+		actionForm.submit();
+		
+	}
+}
+
+function editRecordShow() {
+	document.getElementById("searchForm").submit();
+}
+
+var licenseIdToBeDeleted;
+
+function deleteCounter() {
+	document.getElementById("licenseId").value = licenseIdToBeDeleted;
+	document.getElementById("deleteRevLicenceForm").submit();
+}
+
+function popupDelete(licenseId) {
+	licenseIdToBeDeleted = licenseId;
+	divwin=dhtmlmodal.open('divbox', 'div', 'deleteLicenceRecord', 'eRevenue Licence', 'width=450px,height=125px,left=400px,top=320px,resize=0,scrolling=0');
+	return false;
+}
+
+function vehicleActivityLogShow() {
+	divwin=dhtmlmodal.open('divbox', 'div', 'vehicleActivityLogOuterDiv', 'eRevenue Licence', 'width=950px,height=600px,left=50px,top=10px,resize=0,scrolling=0');
+}
+
+function enableCreatedTime() {
+	document.getElementById("disabledCreatedTime").style.display="none";
+	document.getElementById("enabledCreatedTime").style.display="inline";
+}
+
+function countersForAuthority() {
+    var saveLicence = document.getElementById("saveOldLicenceRecord");
+    saveLicence.action = "countersForAuthority.action";
+    saveLicence.submit();
+}
+</script>
+
+<script src="javascript/dFilter.js" type="text/javascript"></script>
+<script src="javascript/datejs.js" type="text/javascript"></script>
+<script type="text/javascript" src="javascript/jquery.js"></script>
+<script type="text/javascript" src="javascript/jquery.alphanumeric.pack.js"></script>
+<script type="text/javascript">
+
+function changeInsuranceStatus() {
+	var d = Date.today();
+    d.set({
+	    millisecond: 0,
+	    second: 0,
+	    minute: 0,
+	    hour: 0
+	    });
+	
+	var expireDateString = document.getElementById("insuranceExpiryDate").value;
+	var expireDate =  Date.parseExact(expireDateString, ["dd/MM/yyyy", "dd/MM/yy"]);
+	if (expireDate != null) {
+		expireDate.set({millisecond: 0,
+	    second: 0,
+	    minute: 0,
+	    hour: 0
+	    }); 
+	}
+
+	if (expireDate != null && d.compareTo(expireDate) < 1) {
+		document.getElementById("currentRevLicenseRecord.insuranceStatus").value = "Y";
+	} else {
+		document.getElementById("currentRevLicenseRecord.insuranceStatus").value = "N";
+	}
+}
+
+function disableVetField(element) {
+	if (element.value == "Y") {
+		document.getElementById("currentRevLicenseRecord.vetNo").disabled = true;
+		//document.getElementById("currentRevLicenseRecord.fitnessTestStatus").disabled = true;
+	} else {
+		document.getElementById("currentRevLicenseRecord.vetNo").disabled = false;
+		if (false) {
+			document.getElementById("currentRevLicenseRecord.fitnessTestStatus").disabled = false;		
+		}
+	}
+}
+
+function enableVETValidate() {
+	var validateBtn = document.getElementById("butValidateVET");
+	if (document.getElementById("vetCompany").selectedIndex == 0) {
+		validateBtn.disabled = true;
+		validateBtn.className="btn-disabled btn";
+	} else {
+		validateBtn.disabled = false;
+		validateBtn.className="btn";
+	}
+}
+
+function enableInsuranceValidate() {
+	var validateBtn = document.getElementById("butValidateInsurance");
+	if (document.getElementById("insuranceCompany").selectedIndex == 0) {
+		validateBtn.disabled = true;
+		validateBtn.className="btn-disabled btn";
+	} else {
+		validateBtn.disabled = false;
+		validateBtn.className="btn";
+	}
+}
+
+function setValidatedVETNo(validatedVetNo) {
+	document.getElementById("currentRevLicenseRecord.vetNo").value = validatedVetNo; 
+}
+
+function setValidatedInsuranceExpiryDate(validatedInsuranceExpiryDate) {
+	document.getElementById("insuranceExpiryDate").value = validatedInsuranceExpiryDate;
+	document.getElementById("currentRevLicenseRecord.insuranceStatus").selectedIndex = 0; 
+}
+</script>
+
+<style type="text/css">
+.code{background:#fff;padding:10px;border-top:5px solid #aaa;margin:10px 0px;display:none}
+</style>
+	
+
+<script type="text/javascript">
+function editGeneralMemo() {
+	document.getElementById("vehicle.generalMemo").readOnly = false;
+	document.getElementById("vehicle.generalMemo").select();
+	document.getElementById("editGeneralMemo").style.display="none"; 
+	document.getElementById("saveGeneralMemo").style.display="inline";
+	document.getElementById("generalMemo").style.display="none"; 
+	document.getElementById("newGeneralMemo").style.display="inline";
+}
+
+function saveGeneralMemo() {
+	var q = document.getElementById("vehicle.newGeneralMemo").value.length;
+	var msg = document.getElementById("msg").value;
+	if (q > 200) alert(msg);
+	if (q < 201) document.getElementById("vehicleGeneralMemo").submit();
+}
+
+function validateMaxLength() {
+	var q = document.getElementById("vehicle.newGeneralMemo").value.length;
+	var msg = document.getElementById("msg").value;
+	if (q > 200) alert(msg);
+}
+</script>
+	<link rel="stylesheet" href="/erl/struts/xhtml/styles.css" type="text/css"/>
+<script type="text/javascript">
+    // Dojo configuration
+    djConfig = {
+        baseRelativePath: "/erl/struts/dojo",
+        isDebug: false,
+        bindEncoding: "UTF-8",
+        debugAtAllCosts: true // not needed, but allows the Venkman debugger to work with the includes
+    };
+</script>
+<script type="text/javascript"
+        src="/erl/struts/dojo/dojo.js"></script>
+<script type="text/javascript"
+        src="/erl/struts/simple/dojoRequire.js"></script><script type="text/javascript"
+        src="/erl/struts/ajax/dojoRequire.js"></script>
+<script type="text/javascript"
+        src="/erl/struts/CommonFunctions.js"></script>
+
+</head>
+<body>
+	
+
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0"
+	style="max-width: 1024px;" align="center">
+	
+	<tr class="header_bg_top">
+		<td>
+		<table id="tblheader" width="100%" border="0" cellspacing="0"
+			cellpadding="0">
+			<tr>
+				<td width="50%"></td>
+				<td align="right" width="50%">
+					<div id="userDetails">
+					<span id="userDetails_name">
+						Welcome
+					 	<a dojoType="struts:BindAnchor"
+  	href="changePasswordShow.action"    executeScripts="true"    targets="changePasswordInnerDiv"    showError="true" onclick="changePasswordShow()">
+
+						test_user25</a></span>&nbsp; 
+					<span id="userDetails_bar">|</span>&nbsp; 
+					<span id="userDetails_name">Kaduwela</span> 
+					<span id="userDetails_bar">|</span>&nbsp;
+					<span id="userDetails_name">Operator</span> 					
+					<span id="userDetails_bar">|</span>&nbsp; 
+					<span id="userDetails_logout">
+					<a href="/erl/j_spring_security_logout"> Logout&nbsp;&nbsp; <img
+						src="images/header/logout.png" align="absmiddle" onclick="" /></a></span></div>
+				
+			</tr>
+		</table>
+		</td>
+	</tr>
+		
+	
+</table>
+	<table width="100%" border="0" cellpadding="0" cellspacing="0" style="max-width: 1024px;" align="center">
+	<tr valign="top">
+		<td>
+			<table width="100%" border="0" cellspacing="0" cellpadding="1">
+				<tr class="header_bg">
+				<td width="35%">
+					
+					
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0">
+	<tr>
+		<td align="right"><label><strong>Vehicle ID</strong>:
+		</label>&nbsp;</td>
+		<td nowrap="nowrap">
+		
+		
+					
+<form id="searchVehicleForm" name="searchVehicle" onsubmit="return true;" action="/erl/searchVehicle.action" method="post">
+			<input type="text" name="vehicleRegNo" value="10-8722" id="vehicleRegNoField" class="textbox textupper bx90"/>&nbsp;<input type="submit" id="searchVehicleForm_0" value="Search" class="btn btSearch"/>
+
+		</form>
+
+
+
+		
+				
+		</td>
+	</tr>
+</table>
+
+									
+				</td>
+				<td>
+				
+				<div align="center">
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				
+				</div>
+
+			      <div style="position: absolute;">
+			      
+                  <div id="div1" style="display: none; background:url(images/header/sectionBodyRed.png) top left repeat-x; width: 380px; height: 340px; position: relative; border: 1px solid #FA8D7A; top: 0px; z-index:1;">
+                    <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                    <tr>
+                    	<td class="space_height10">&nbsp;</td>
+                    </tr>
+                    <tr>
+                       <td style="padding-left:10px;">
+	                      <Strong>Ineligible Reasons</Strong>
+	                   </td>
+                    </tr>
+                  				
+<form id="ineligibleForm" name="ineligibleVehicle" onsubmit="return true;" action="/erl/ineligibleVehicle.action" method="post">  
+                    
+                    
+                    
+	                    <tr>
+	                        <td width="3%" colspan="2" style="padding-left:10px;">
+								
+									<input type="checkbox" name="ineligibleReasonIds[0]" value="4" id="ineligibleForm_ineligibleReasonIds_0_" onclick="unCheckOthers(this);"/>
+<input type="hidden" name="__checkbox_ineligibleReasonIds[0]" value="4" />
+									Incorrect Owner/Vehicle Information<br />
+		                      	
+									<input type="checkbox" name="ineligibleReasonIds[1]" value="2" id="ineligibleForm_ineligibleReasonIds_1_" onclick="unCheckOthers(this);"/>
+<input type="hidden" name="__checkbox_ineligibleReasonIds[1]" value="2" />
+									No Original Vehicle Registration Book<br />
+		                      	
+									<input type="checkbox" name="ineligibleReasonIds[2]" value="3" id="ineligibleForm_ineligibleReasonIds_2_" onclick="unCheckOthers(this);"/>
+<input type="hidden" name="__checkbox_ineligibleReasonIds[2]" value="3" />
+									No Previous Licence Provided<br />
+		                      	
+									<input type="checkbox" name="ineligibleReasonIds[3]" value="1" id="ineligibleForm_ineligibleReasonIds_3_" onclick="unCheckOthers(this);"/>
+<input type="hidden" name="__checkbox_ineligibleReasonIds[3]" value="1" />
+									No V E T / Insurance / Fitness / Route Permit<br />
+		                      	
+									<input type="checkbox" name="ineligibleReasonIds[4]" value="5" id="ineligibleForm_ineligibleReasonIds_4_" onclick="unCheckOthers(this);"/>
+<input type="hidden" name="__checkbox_ineligibleReasonIds[4]" value="5" />
+									Other Reason<br />
+		                      	
+	                        </td>
+	                      </tr>
+                    
+                    </form>
+
+
+
+
+                      
+                      <tr>
+                       <td><hr /></td></tr>
+                      </table>
+                       <table width="100%" border="0" cellspacing="0" cellpadding="0">
+                       <tr>
+	                       <td style="padding-left:10px;">
+	                       		<Strong>Black Listed Reasons</Strong>
+	                       </td>
+                       </tr>
+                       			
+<form id="blacklisingForm" name="blacklisteVehicle" onsubmit="return true;" action="/erl/blacklisteVehicle.action" method="post"> 
+                      <tr> 
+                        <td width="3%" style="padding-left:10px;">
+                        		
+                        		<input type="checkbox" name="blacklistedReasonIds[0]" value="1" disabled="disabled" id="blacklisingForm_blacklistedReasonIds_0_" onclick="blacklistingUncheck(this)"/>
+<input type="hidden" name="__checkbox_blacklistedReasonIds[0]" value="1" />
+								Police, Courts, Tax Authority<br />
+	                      	
+                        </td>
+                      </tr>
+                      </form>
+
+
+
+
+                      <tr>
+                        <td><hr /></td>
+                      </tr>
+				      <tr valign="top">
+                      	<td colspan="2" style="padding-left:10px;"><label>Comment:</label><br />
+                        	<textarea name="comment" cols="46" rows="3" id="reason"></textarea>                              
+                        </td>
+					  </tr>
+					  <tr>
+                    	<td class="space_height10">&nbsp;</td>
+                      </tr>
+                      <tr>
+                      	<td colspan="2">
+                      	<div class="actionbutton" style="padding-right:13px;">
+	                        
+	                        
+	                        	<input type="button" name="button2" id="ineligibleButton" value="Send" class="btn btSmall" onclick="doIneligible();" />
+	                        
+	                        
+		                      
+								
+		                                              
+	                        <input type="button" name="button2" id="button2" value="Cancel" class="btn btSmall"  onclick="showhide('div1')" />
+						</div>
+						</td>
+					  </tr>
+				</table>
+                </div>
+            	</div>
+				
+				
+				</td>
+				<td width="20%">&nbsp;</td>
+				
+				
+				
+					<td width="12%">&nbsp;</td>
+				
+				
+				
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+
+
+<div id="selectIneligibleReason" style="display:none">
+  <div class="section_body">
+    <form id="frmSelectIneligibleReason" name="frmSelectIneligibleReason" method="post" action="">
+	<h5>Ineligible Status</h5>
+    	<table width="100%" border="0" cellspacing="0" cellpadding="3" class="tableBg">
+        	<tr>
+            	<td style="vertical-align:top; width:3%;"><img src="images/main/warning.png" width="32" height="32" alt="" title="" /></td>
+                	<td style="width:97%;">Please select Ineligible reason, if any or click Cancel button to exit. </td>
+			</tr>
+		</table>
+        
+        <table width="100%" border="0" cellspacing="1" cellpadding="2" class="">
+        	<tr>
+            	<td align="right">
+            		<input name="butOk" type="button" class="btn" id="butOk" 
+            		value="Ok" 
+            		onclick="ineligibleOk()" title="Yes" />
+                	
+				</td>
+			</tr>
+		</table>
+    </form>
+  </div>
+</div>
+	
+<input type="hidden" id="msg" name="msg" value="The new fine cannot be less than the current fine." />
+
+<table width="100%" border="0" cellpadding="0" cellspacing="0"
+	style="max-width: 1024px;" align="center">
+	
+		<tr style="" id="sysmsg"><td>	<div class="errorSection"> 
+		
+	<ul>
+		<li><span> Different province vehicle. Cannot issue revenue licence
+</span></li>
+	</ul>
+	</div></td></tr>
+		<script type="text/javascript">
+			document.getElementById("vehicleRegNoField").focus();
+		</script>
+	
+	
+	<tr>
+		<td>
+		<table width="100%" border="0" cellspacing="3" cellpadding="1">
+			<tr>
+				<td valign="top">
+
+
+
+			
+<form id="vehicleInformation" name="prepareSaveInformation" onsubmit="return true;" action="/erl/prepareSaveInformation.action" method="post">
+	
+		
+		
+		
+	
+	
+	
+
+	
+	
+	
+	
+	
+	<input type="hidden" name="vehicleNotFoundInDB" value="false" id="vehicleInformation_vehicleNotFoundInDB"/>
+	<div id="section">
+	<div class="section_header">Vehicle / Owner Information
+	</div>
+
+	<div class="section_body">
+	<table width="100%" border="0" cellspacing="1" cellpadding="1">
+		<tr valign="middle">
+			<td width="13%"><label id="vehicleInformation_vehicle_vehicleOwner_name" for="vehicle.vehicleOwner.name">Name</label>:
+			<div id="requiredMark1" class="req_field">*</div>
+			</td>
+			<td colspan="5"><input type="text" name="vehicle.vehicleOwner.name" value="THILAKA VIDYAPATHI  MAPALAGAMAGE                                                                                        " readonly="readonly" tabindex="1" id="vehicle.vehicleOwner.name" class="textbox_disabled textupper bxfull" onkeydown="return keyNavInOwnerInfor.handleKeyNavigation(event, this);"/>
+			</td>
+		</tr>
+
+		<tr valign="middle">
+			<td width="13%"><label id="vehicleInformation_vehicle_vehicleOwner_addr1" for="vehicle.vehicleOwner.addr1">No</label>:
+			</td>
+			<td><input type="text" name="vehicle.vehicleOwner.addr1" value="354/6  WAKWELLA RD            " readonly="readonly" tabindex="2" id="vehicle.vehicleOwner.addr1" class="textbox_disabled textupper bx80" onkeydown="return keyNavInOwnerInfor.handleKeyNavigation(event, this);"/>
+			</td>
+			<td><label id="vehicleInformation_vehicle_vehicleOwner_addr2" for="vehicle.vehicleOwner.addr2">Street</label>:
+			<div id="requiredMark2" class="req_field">*</div>
+			</td>
+			<td><input type="text" name="vehicle.vehicleOwner.addr2" value="                              " readonly="readonly" tabindex="3" id="vehicle.vehicleOwner.addr2" class="textbox_disabled textupper bx135" onkeydown="return keyNavInOwnerInfor.handleKeyNavigation(event, this);"/>
+			</td>
+			<td><label id="vehicleInformation_vehicle_vehicleOwner_city" for="vehicle.vehicleOwner.city">City</label>:
+			<div id="requiredMark3" class="req_field">*</div>
+			</td>
+			<td width="14%"><input type="text" name="vehicle.vehicleOwner.city" value="GALLE               " readonly="readonly" tabindex="4" id="vehicle.vehicleOwner.city" class="textbox_disabled textupper bx120" onkeydown="return keyNavInOwnerInfor.handleKeyNavigation(event, this);"/>
+			</td>
+		</tr>
+		<tr>
+			<td colspan="6" class="space_height15">
+			<hr size="1" width="100%" />
+			</td>
+		</tr>
+	</table>
+
+	<table width="100%" border="0" cellspacing="1" cellpadding="1">
+		<tr valign="middle">
+			<td width="13%"><label id="vehicleInformation_vehicle_chassisNo" for="vehicle.chassisNo">Chassis</label>:
+			<div id="requiredMark4" class="req_field">*</div>
+			</td>
+			<td><input type="text" name="vehicle.chassisNo" value="CB125T1015095" readonly="readonly" tabindex="5" id="vehicle.chassisNo" class="textbox_disabled bx140" onkeydown="return keyNavInOwnerInfor.handleKeyNavigation(event, this);"/>
+			</td>
+			<td><label id="vehicleInformation_vehicle_tareWeight" for="vehicle.tareWeight">Tare</label>:
+			<div id="requiredMark5" class="req_field">*</div>
+			</td>
+			<td><input type="text" name="vehicle.tareWeight" value="0.00" readonly="readonly" tabindex="8" id="vehicle.tareWeight" class="textbox_disabled bx80 blueBG" onkeydown="return keyNavInOwnerInfor.handleKeyNavigation(event, this);"/>
+			</td>
+			<td><label>Authority</label>:
+			</td>
+			<td><select name="vehicle.authority.authorityId" disabled="disabled" tabindex="11" id="vehicle.authority.authorityId" class="bx110" onkeydown="return keyNavInOwnerInfor.handleKeyNavigation(event, this);">
+    <option value="332">&lt;UNKNOWN_AUTHORITY&gt;</option>
+    <option value="32">Agalawatte</option>
+    <option value="16">Attanagalla</option>
+    <option value="26">Bandaragama</option>
+    <option value="30">Beruwala</option>
+    <option value="22">Biyagama</option>
+    <option value="28">Bulathsinhala</option>
+    <option value="1">Colombo</option>
+    <option value="350">Colombo - Dam Street</option>
+    <option value="6">Dehi_Mt.La</option>
+    <option value="11">Diulapitiya</option>
+    <option value="333">DMT-Narahenpita</option>
+    <option value="29">Dodamgoda</option>
+    <option value="17">Gampaha</option>
+    <option value="10">Hanwella</option>
+    <option value="9">Homagama</option>
+    <option value="27">Horana</option>
+    <option value="36">Ingiriya</option>
+    <option value="3">Jayawardenapura</option>
+    <option value="18">Ja_Ela</option>
+    <option value="4">Kaduwela</option>
+    <option value="25">Kalutara</option>
+    <option value="8">Kasbewa</option>
+    <option value="12">Katana</option>
+    <option value="23">Kelaniya</option>
+    <option value="2">Kolonnawa</option>
+    <option value="38">Madurawala</option>
+    <option value="20">Mahara</option>
+    <option value="5">Maharagama</option>
+    <option value="31">Mathugama</option>
+    <option value="35">Millaniya</option>
+    <option value="14">Minuwangoda</option>
+    <option value="15">Mirigama</option>
+    <option value="7">Moratuwa</option>
+    <option value="13">Negambo</option>
+    <option value="37">Padukka</option>
+    <option value="34">PalindaNuwara</option>
+    <option value="24">Panadura</option>
+    <option value="39">Ratmalana</option>
+    <option value="349">Thimbirigasyaya</option>
+    <option value="21">Waake - Dompe</option>
+    <option value="33">Walallawita</option>
+    <option value="19">Wattala</option>
+    <option value="334">Web License -WP</option>
+
+
+</select>
+			</td>
+		</tr>
+		<tr valign="middle">
+			<td><label id="vehicleInformation_vehicle_engineNo" for="vehicle.engineNo">Engine</label>:
+			<div id="requiredMark6" class="req_field">*</div>
+			</td>
+			<td><input type="text" name="vehicle.engineNo" value="CB125TE101579                      " readonly="readonly" tabindex="6" id="vehicle.engineNo" class="textbox_disabled bx140" onkeydown="return keyNavInOwnerInfor.handleKeyNavigation(event, this);"/>
+			</td>
+			<td><label id="vehicleInformation_vehicle_grossWeight" for="vehicle.grossWeight">Gross</label>:
+			<div id="requiredMark7" class="req_field">*</div>
+			</td>
+			<td><input type="text" name="vehicle.grossWeight" value="0.00" readonly="readonly" tabindex="9" id="vehicle.grossWeight" class="textbox_disabled bx80 blueBG" onkeydown="return keyNavInOwnerInfor.handleKeyNavigation(event, this);"/>
+			</td>
+			<td><label>Fuel Type</label>:
+			</td>
+			<td><select name="vehicle.fuel.fuelId" disabled="disabled" tabindex="12" id="vehicle.fuel.fuelId" class="bx110" onkeydown="return keyNavInOwnerInfor.handleKeyNavigation(event, this);">
+    <option value="6">&lt;NO_FUEL_TYPE&gt;</option>
+    <option value="2">DIESEL</option>
+    <option value="9">DIESEL-ELE</option>
+    <option value="5">ELECTRIC</option>
+    <option value="4">GAS</option>
+    <option value="3">KEROSINE</option>
+    <option value="7">NOT STATED</option>
+    <option value="1" selected="selected">PETROL</option>
+    <option value="8">PETROL-ELE</option>
+
+
+</select>
+			</td>
+		</tr>
+		<tr valign="middle">
+			<td><label id="vehicleInformation_firstRegDate" for="firstRegDate">1st Reg</label>:
+			<div id="requiredMark8" class="req_field">*</div>
+			</td>
+			<td><input type="text" name="firstRegDate" value="27/11/1979" readonly="readonly" tabindex="7" id="vehicle.firstRegDate" class="textbox_disabled bx140 blueBG" onkeydown="javascript:return keyNavInOwnerInfor.handleKeyNavigation(event, this) ? dFilter (event.keyCode, this, '##/##/####') : false;"/>
+			</td>
+
+			<td><label id="vehicleInformation_vehicle_noOfSeats" for="vehicle.noOfSeats">Seats</label>:
+			<div id="requiredMark9" class="req_field">*</div>
+			</td>
+			<td><input type="text" name="vehicle.noOfSeats" value="0" readonly="readonly" tabindex="10" id="vehicle.noOfSeats" class="textbox_disabled bx80 blueBG" onkeydown="return keyNavInOwnerInfor.handleKeyNavigation(event, this);"/>
+			</td>
+			<td><label>Class</label>:</td>
+			<td><select name="vehicle.vehicleClass.vehicleClassId" disabled="disabled" tabindex="13" id="vehicle.vehicleClass.vehicleClassId" class="bx110" onkeydown="return keyNavInOwnerInfor.handleKeyNavigation(event, this);">
+    <option value="12">-</option>
+    <option value="15">&lt;UNKNOWN&gt;</option>
+    <option value="19">AMBULANCE</option>
+    <option value="11">AMBULANCE, HEARSE</option>
+    <option value="2">DUAL PURPOSE</option>
+    <option value="20">HEARSE</option>
+    <option value="4">LAND VEHICLE</option>
+    <option value="17">LAND VEHICLE TRAILOR</option>
+    <option value="16">LORRY TRAILER</option>
+    <option value="1">MOTOR CAR</option>
+    <option value="13">MOTOR CAR A-Z</option>
+    <option value="5" selected="selected">MOTOR CYCLE</option>
+    <option value="24">MOTOR HOME</option>
+    <option value="3">MOTOR LORRY</option>
+    <option value="21">MOTOR TRICYCLE</option>
+    <option value="14">MOTOR TRICYCLE VAN</option>
+    <option value="9">OMNI BUS</option>
+    <option value="7">PRIVATE COACHES</option>
+    <option value="23">QUADRICYCLE</option>
+    <option value="6">S L T B</option>
+    <option value="22">SPECIAL PURPOSE VEHICLE</option>
+    <option value="10">THREE WHEELER</option>
+    <option value="18">TRADING VEHICLE</option>
+
+
+</select></td>
+		</tr>
+		<tr>
+			<td colspan="7" class="space_height15">
+			<hr size="1" width="100%" />
+			</td>
+		</tr>
+	</table>
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td width="65%">
+			
+			</td>
+			<td width="35%">
+			<div class="actionbutton">
+			
+			 
+				<input type="button" name="butsyncVehicle" id="butsyncVehicle"
+					class="btn"
+					
+					
+					onclick="syncVehicle();winOpen('syncVehicleDo.action?vehicleRegNo=10-8722', '_self');setTimeout(enableButton,5000);"
+					
+					value="Update"
+					 
+					/>
+			
+			
+			
+			
+			
+				
+				
+				
+						
+						<span id="editUserInfoByOperator" style="display: inline">
+						<input type="button" name="button6" id="button20" onkeydown="return keyNavInOwnerInfor.handleKeyNavigation(event, this);"
+							value="Edit"
+							class="btn btSmall" onclick="enableOwnerInformation()"/> </span>
+					
+					
+					<span id="saveUserInfoByOperator" style="display: none"> <input
+						type="button" name="button6" id="button22" onkeydown="return keyNavInOwnerInfor.handleKeyNavigation(event, this);" 						
+						value="Save"						
+						class="btn btSmall" onclick="disVehicleInfoOnComment()"
+						tabindex="17"/> </span>
+					
+				
+			
+			</div>
+			</td>
+		</tr>
+	</table>
+
+	</div>
+	</div>
+</form>
+
+
+
+
+
+<div id="commentBoxWithEffectiveDate" style="display: none">
+<div class="section_body">
+<table width="100%" border="0" cellspacing="1" cellpadding="1">
+	<tr>
+		<tr style="" id="sysmsg"><td>	<div class="errorSection"> 
+		
+	<ul>
+		<li><span> Different province vehicle. Cannot issue revenue licence
+</span></li>
+	</ul>
+	</div></td></tr>
+	</tr>
+	<tr>
+		<td>			
+<form id="editVehicleInfo" name="editVehicleInfo" onsubmit="return true;" action="/erl/editVehicleInfo.action" method="post">
+			<input type="hidden" name="addDummyLicence" value="" id="editVehicleInfo_addDummyLicence"/>
+			<input type="hidden" name="editDummyLicence" value="" id="editVehicleInfo_editDummyLicence"/>
+			<input type="hidden" name="addLicenceForAuthority" value="" id="editVehicleInfo_addLicenceForAuthority"/>
+			<input type="hidden" name="editDummyLicenceId" value="" id="editVehicleInfo_editDummyLicenceId"/>
+			<table width="100%" border="0" cellspacing="1" cellpadding="1">
+				
+				<tr valign="top">
+					<td colspan="2"><label>You have changed the Vehicle / Owner Information. Please add a comment to continue.</label></td>
+				</tr>				
+				<tr>
+					<td class="space_height12" colspan="2"></td>
+				</tr>
+				<tr valign="top">
+					<td><label id="editVehicleInfo_vehicleInformationUpdateComment" for="vehicleInformationUpdateComment">Comments</label>:
+						<div class="req_field_vis">*</div>
+					</td>
+					<td><label><textarea name="vehicleInformationUpdateComment" cols="20" rows="3" id="vehicleInformationUpdateComment" class="bx300"></textarea>
+					</label></td>
+				</tr>
+				<tr valign="top">
+					<td>&nbsp;</td>
+					<td><SELECT size="5" id="commonComments"  class="bx300" style="font-family:  Verdana, Arial, Helvetica, sans-serif; font-size: small; border: #7f9db9 solid 1px; -moz-border-radius:3px; -webkit-border-radius:3px; height:auto" 
+							onchange="setSelectedComment()">
+						
+						<option>Transferred from other province</option>
+						
+						<option>Transferred from other authority</option>
+						
+						<option>Vehicle not found in DMT</option>
+						
+						<option>Owner name or address modified</option>
+						
+						<option>Transfer to WP</option>
+						
+						<option>Changed fuel type</option>
+						
+						<option>Changed vehicle class</option>
+						
+						<option>Changed authority</option>
+						
+						<option>Tare or gross weight modified</option>
+						
+						<option>Seat capacity modified</option>
+						
+						<option>First registration date modified</option>
+						
+					</SELECT></td>
+				</tr>
+				
+				
+				
+                
+				
+				<tr>
+					<td colspan="2" class="space_height12"></td>
+				</tr>
+				<tr>
+					<td colspan="2">
+					<div class="actionbutton">
+						<input type="hidden" name="otherProvinceSelected" value="false" id="editVehicleInfo_otherProvinceSelected"/>
+												
+						<input type="button" name="button2" id="button2" 
+								value="Ok"
+								class="btn btSmall" 
+								
+								
+								onclick="hidePopup(divwin); divwin5=dhtmlmodal2.open('divbox2', 'div', 'updateConfirmation', 'eRevenue Licence', 'width=650px,height=100px,center=1,resize=0,scrolling=0');"
+								
+						 />
+						<input type="button" name="button7" id="button7"
+								value="Cancel"
+								class="btn btSmall" 
+								onclick="location.href='searchVehicle.action'" />
+					</div>
+					</td>
+				</tr>
+			</table>
+		</form>
+
+
+
+</td>
+	</tr>
+</table>
+</div>
+</div>
+
+<div id="updateConfirmation" style="display: none">
+<div class="section_body">
+<table width="100%" border="0" cellspacing="0" cellpadding="2">
+	<tr>
+		<td>
+		<table width="100%" border="0" cellspacing="0" cellpadding="2">
+			<tr>
+				<td valign="top" width="100%">
+				<table width="100%" border="0" cellspacing="0" cellpadding="3"
+					class="tableBg">
+					<tr>
+						<td style="vertical-align: top; width: 3%;"><img
+							src="images/main/question.png" width="34" height="32"
+							alt="" title="" /></td>
+						<td style="width: 97%;">Are you sure you want to save the changes done to the vehicle <b>10-8722</b></td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<table width="100%" border="0" cellspacing="1" cellpadding="2"
+					class="">
+					<tr>
+						<td align="right">
+						<input name="butUpdateOk" type="button" class="btn btSmall" id="butUpdateOk"
+							value="Ok" onclick="disVehicleInfo()" />
+						<input name="butUpdateCancel" type="button"
+							class="btn btSmall" id="butUpdateCancel" value="Cancel"
+							onclick="location.href='searchVehicle.action'" />							
+						</td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+</div>
+</div>
+<script>
+<!--
+
+
+
+
+
+
+	var state = '';
+	if (state != null && state == 'owner') {
+		
+		
+		
+		divwin=dhtmlmodal.open('divbox', 'div', 'commentBoxWithEffectiveDate', 'eRevenue Licence', 'width=530px,height=330px,center=1,resize=0,scrolling=0');
+		
+	}
+
+
+-->
+</script>
+
+
+
+
+
+
+ 
+
+
+
+
+<div id="section">
+<div class="section_header">Licence Payment History
+</div>
+<div class="section_body"> 
+	<div id="viewLess"
+		style="display: block; overflow: scroll; width: 600px; overflow-y: hidden;">
+  
+	No licence history found
+</div>
+
+<div id="viewMore"
+	style="display: none; overflow: scroll; width: 600px; overflow-y: hidden;">
+ 
+	No licence history found
+</div>
+ 
+	<table width="100%" border="0" cellspacing="0" cellpadding="0">
+		<tr>
+			<td class="space_height12"></td>
+		</tr>
+		<tr>
+			<td>
+			<div class="actionbutton"> <span id="butViewLess" style="display: none"> <input
+				type="submit" name="" id=""
+				value="View Less"
+				class="btn" onclick="viewLess()" /> </span></div>
+			</td>
+		</tr>
+	</table>
+ </div>
+</div>
+
+<div id="LicenceHistory" style="display: none;">
+<div id="detailLicenceRec"></div>
+</div>
+
+<div id="addOldLicenceRecord" style="display: none">			
+<form id="saveOldLicenceRecord" name="saveOldLicenceRecord" onsubmit="return true;" action="/erl/saveOldRevLicenceRecord.action" method="post">
+	<div id="section">
+	<div class="section_header"> </div>
+
+	<div class="section_body">
+
+	<table width="100%" border="0" cellspacing="1" cellpadding="3">
+		
+		<tr>
+			<td nowrap="nowrap"><label id="saveOldLicenceRecord_recordToActionPerform_licenseType_licenseTypeId" for="recordToActionPerform.licenseType.licenseTypeId">Type</label>:
+			<div class="req_field_vis">*</div>
+			</td>
+			<td><select name="recordToActionPerform.licenseType.licenseTypeId" id="recordToActionPerform.licenseType.licenseTypeId">
+    <option value="1">Arrears</option>
+    <option value="2">Free Issuing</option>
+    <option value="4">Non User</option>
+    <option value="3">Normal Issuing</option>
+    <option value="6">Other Authority</option>
+    <option value="7">Other Province</option>
+    <option value="5">Reissuing</option>
+
+
+</select></td>
+		</tr>
+		<tr>
+			
+			
+				<td nowrap="nowrap"><label id="saveOldLicenceRecord_recordToActionPerform_counter_counterId" for="recordToActionPerform.counter.counterId">Counter</label>:
+				<div class="req_field_vis">*</div>
+				</td>
+				<td><select name="recordToActionPerform.counter.counterId" id="saveOldLicenceRecord_recordToActionPerform_counter_counterId">
+    <option value="21">A</option>
+    <option value="22">B</option>
+    <option value="23">C</option>
+    <option value="33">System</option>
+    <option value="52">D</option>
+    <option value="53">T</option>
+    <option value="72">E</option>
+    <option value="74">H</option>
+    <option value="83">S</option>
+
+
+</select></td>
+			
+		</tr>
+		<tr>
+			<td><label id="saveOldLicenceRecord_recordToActionPerform_licenseNo" for="recordToActionPerform.licenseNo">Licence No/Reference No</label>:
+			<div class="req_field_vis">*</div>
+			</td>
+			<td><input type="hidden" name="recordToActionPerform.licenseId" value="" id="saveOldLicenceRecord_recordToActionPerform_licenseId"/> <input type="hidden" name="state" value="" id="saveOldLicenceRecord_state"/> <input type="text" name="recordToActionPerform.licenseNo" maxlength="20" value="" id="recordToActionPerform.licenseNo"/></td>
+		</tr>
+		<tr>
+			<td><label id="saveOldLicenceRecord_recordToActionPerform_counterSequence" for="recordToActionPerform.counterSequence">Tx Number</label>:
+			</td>
+			<td><input type="text" name="recordToActionPerform.counterSequence" size="5" maxlength="3" value="" id="recordToActionPerform.counterSequence"/>
+			</td>
+		</tr>
+		<tr>
+			<td nowrap="nowrap"><label id="saveOldLicenceRecord_oldRecCreatedTime" for="oldRecCreatedTime">Inserted Date</label>:
+			<div class="req_field_vis">*</div>
+			</td>
+			<td>
+			<div style="display: inline"> 
+				<div style="display: none" id="enabledCreatedTime"><input type="text" name="oldRecCreatedTime" value="" id="enOldRecCreatedTime" onkeydown="javascript:return dFilter (event.keyCode, this, '##/##/#### ##:##')"/>
+
+				</div>
+				<div style="display: inline" id="disabledCreatedTime"><input type="text" name="oldRecCreatedTime" value="" disabled="disabled" id="disOldRecCreatedTime"/>
+				<img style="cursor: pointer" onclick="enableCreatedTime()"
+					alt="Edit"
+					title="Edit"
+					src="images/main/editFleet.png" /></div>
+			</div>
+			</td>
+		</tr>
+		<tr>
+			<td nowrap="nowrap"><label id="saveOldLicenceRecord_oldRecIssueDate" for="oldRecIssueDate">Issued Date</label>:
+			<div class="req_field_vis">*</div>
+			</td>
+
+			<td><input type="text" name="oldRecIssueDate" value="" id="licenceRecord.issueDate" class="textbox bxDate" onkeydown="javascript:return dFilter (event.keyCode, this, '##/##/####')"/>
+			</td>
+		</tr>
+		<tr>
+			<td width="50%" nowrap="nowrap"><label id="saveOldLicenceRecord_oldRecExpiryDate" for="oldRecExpiryDate">Expiry Date</label>:
+			<div class="req_field_vis">*</div>
+			</td>
+			<td><input type="text" name="oldRecExpiryDate" value="" id="licenceRecord.expireDate" class="textbox bxDate" onkeydown="javascript:return dFilter (event.keyCode, this, '##/##/####')"/>
+			</td>
+		</tr>
+		<tr>
+			<td nowrap="nowrap"><label id="saveOldLicenceRecord_recordToActionPerform_licenseAmount" for="recordToActionPerform.licenseAmount">Licence Fee</label>:
+			<div class="req_field_vis">*</div>
+			</td>
+			<td><input type="text" name="recordToActionPerform.licenseAmount" value="" id="saveOldLicenceRecord_recordToActionPerform_licenseAmount" onkeydown="return validateCurrency(event, this)"/></td>
+		</tr>
+		<tr>
+			<td nowrap="nowrap"><label id="saveOldLicenceRecord_recordToActionPerform_fine" for="recordToActionPerform.fine">Licence Fine</label>:
+			<div class="req_field_vis">*</div>
+			</td>
+			<td><input type="text" name="recordToActionPerform.fine" value="" id="saveOldLicenceRecord_recordToActionPerform_fine" onkeydown="return validateCurrency(event, this)"/></td>
+		</tr>
+		<tr>
+			<td nowrap="nowrap" style="vertical-align: top;"><label id="saveOldLicenceRecord_recordToActionPerform_comments" for="recordToActionPerform.comments">Comment</label>:
+			<div class="req_field_vis">*</div>
+			</td>
+			<td><textarea name="recordToActionPerform.comments" cols="20" rows="3" id="saveOldLicenceRecord_recordToActionPerform_comments"></textarea></td>
+		</tr>
+	</table>
+
+	</div>
+
+	</div>
+	<table width="100%" border="0" cellspacing="1" cellpadding="2">
+		<tr>
+			<td class="space_height12">
+			<div class="actionbutton">  <input type="button" name="button8" id="button12"
+				value="Cancel"
+				class="btn btSmall" onclick="divwin.hide();return false" /></div>
+			</td>
+		</tr>
+	</table>
+</form>
+
+
+
+</div>
+<div id="deleteLicenceRecord" style="display: none">
+<div class="section_body">
+<form id="deleteRevLicenceForm" name="deleteRevLicenceForm"
+	method="post" action="deleteOldRevLicenceRecord.action">
+<table width="100%" border="0" cellspacing="0" cellpadding="2">
+	<tr>
+		<td>
+		<table width="100%" border="0" cellspacing="0" cellpadding="2">
+			<tr>
+				<td valign="top" width="100%">
+				<h5>Remove licence history record</h5>
+				<table width="100%" border="0" cellspacing="0" cellpadding="3"
+					class="tableBg">
+					<tr>
+						<td style="vertical-align: top; width: 3%;"><img
+							src="images/main/question.png" width="32" height="32" alt=""
+							title="" /></td>
+						<td style="width: 97%;">Are you sure you want to delete this licence history record?</td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<table width="100%" border="0" cellspacing="1" cellpadding="2"
+					class="">
+					<tr>
+						<td align="right"><input type="hidden" name="licenseId" value="" id="licenseId"/>
+
+						<input name="butOk" type="button" class="btn" id="butOk"
+							value="Ok"
+							onclick="deleteCounter();"
+							title="Ok" />
+
+						<input name="butcancel2" type="button" class="btn" id="butcancel2"
+							value="Cancel"
+							onclick="divwin.hide();return false"
+							title="Cancel" />
+
+						</td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+</form>
+</div>
+</div>
+
+<div id="vehicleActivityLogOuterDiv" style="display: none">
+<div id="vehicleActivityLogInnerDiv"></div>
+</div>
+
+
+</td>
+
+				<td colspan="2" valign="top"><!-- V E T / Insurance / Fitness / Route Permit -->
+				
+
+
+<div id="section">
+		<div class="section_header">
+			V E T / Insurance / Fitness / Route Permit
+		</div>
+		<div class="section_body">
+						
+					
+<form id="issueRevLicForm" name="issueRevLicence" onsubmit="return true;" action="/erl/issueRevLicence.action" method="post">
+		
+		<table width="100%" border="0" cellspacing="1" cellpadding="1">
+			<tr>
+				<td colspan="2">
+					<input type="checkbox" name="certificateOfRegistration" value="true" checked="checked" disabled="disabled" tabindex="-1" id="issueRevLicForm_certificateOfRegistration"/>
+<input type="hidden" name="__checkbox_certificateOfRegistration" value="true" />
+					<label id="issueRevLicForm_certificateOfRegistration" for="certificateOfRegistration">Certificate of Registration</label>
+				</td>
+				
+				<td><label>Previous Lic/ Rcpt No.</label> :</td>
+				<td><input type="text" name="previousLic" value="19078413" readonly="readonly" tabindex="-1" id="previousLic" class="textbox bx90" onkeydown="return keyNav.handleKeyNavigation(event, this);"/></td>
+				
+			</tr>	
+			<tr>
+				<td>
+					<label>Brand New Status:</label>			
+				</td>
+				<td>
+					<select name="isBrandNew" disabled="disabled" id="isBrandNew" class="bx70 bolddptxt" onchange="disableVetField(this);">
+    <option value="Y" selected="selected">Yes</option>
+    <option value="N">No</option>
+
+
+</select>
+					</td>
+				<td><label id="issueRevLicForm_currentRevLicenseRecord_vetNo" for="currentRevLicenseRecord.vetNo">VET</label>:
+				<div name="vetReq" class="req_field">*</div>
+				</td>
+				<td nowrap="nowrap">
+					<input type="text" name="currentRevLicenseRecord.vetNo" maxlength="15" value="" disabled="disabled" id="currentRevLicenseRecord.vetNo" class="textbox alphanumericvet bx90" onkeydown="return keyNav.handleKeyNavigation(event, this);"/>
+							<div class="code">$('.alphanumericvet').alphanumeric();</div>
+						
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label id="issueRevLicForm_currentRevLicenseRecord_insuranceStatus" for="currentRevLicenseRecord.insuranceStatus">Insurance Cert</label>:
+				</td>
+				<td>
+					<select name="currentRevLicenseRecord.insuranceStatus" disabled="disabled" tabindex="-1" id="currentRevLicenseRecord.insuranceStatus" class="bx70 bolddptxt">
+    <option value="Y" selected="selected">Yes</option>
+    <option value="N">No</option>
+
+
+</select>
+				</td>
+				<td>
+					<label id="issueRevLicForm_lblInsuranceExpiryDate" for="insuranceExpiryDate">Expiry</label>:
+					<div name="vetReq" class="req_field">*</div>
+				</td>
+				<td>
+					<input type="text" name="insuranceExpiryDate" value="" disabled="disabled" id="insuranceExpiryDate" class="textbox bx90" onmouseout="changeInsuranceStatus();" onkeydown="javascript:return keyNav.handleKeyNavigation(event, this) ? dFilter (event.keyCode, this, '##/##/####') : false;"/>
+					
+					
+				</td>
+			</tr>
+			<tr>
+				<td>
+					<label id="issueRevLicForm_currentRevLicenseRecord_fitnessTestStatus" for="currentRevLicenseRecord.fitnessTestStatus">Fitness Cert</label>:
+				</td>
+				<td>
+					
+						<select name="currentRevLicenseRecord.fitnessTestStatus" disabled="disabled" id="currentRevLicenseRecord.fitnessTestStatus" class="bx70 bolddptxt" onkeydown="return keyNav.handleKeyNavigation(event, this);">
+    <option value="Y">Yes</option>
+    <option value="N">No</option>
+    <option value="BN">B.New</option>
+
+
+</select>	
+					
+					
+				</td>
+				<td></td>
+					
+				<td>(dd/mm/yyyy)</td>	
+			</tr>
+			<tr>
+				<td>
+					<label id="issueRevLicForm_currentRevLicenseRecord_routePermitNo" for="currentRevLicenseRecord.routePermitNo">Route Permit</label>:
+					<div name="vetReq" class="req_field">*</div>
+				</td>
+				<td>
+					<input type="text" name="currentRevLicenseRecord.routePermitNo" maxlength="15" value="" disabled="disabled" id="currentRevLicenseRecord.routePermitNo" class="textbox bx65" onkeydown="return keyNav.handleKeyNavigation(event, this);"/>
+				</td>
+				<td>
+					<label id="issueRevLicForm_routePermitExpiryDate" for="routePermitExpiryDate">Expiry</label>:
+					<div name="vetReq" class="req_field">*</div>
+				</td>
+				<td>
+					<input type="text" name="routePermitExpiryDate" value="" disabled="disabled" id="routePermitExpiryDate" class="textbox bx90" onkeydown="javascript:return keyNav.handleKeyNavigation(event, this) ? dFilter (event.keyCode, this, '##/##/####') : false;"/>
+												
+				</td>	
+			</tr>
+		</table>
+		</form>
+
+
+
+
+		</div>
+		</div>
+
+	<script type="text/javascript">
+		var elements = document.getElementsByName("vetReq");
+
+		if (elements.length == 0) {
+			elements = getElementsByName_iefix("div", "vetReq"); 
+		}
+
+		for ( i = 0; i < elements.length; i++) {
+			elements[i].className ='req_field_vis';
+		}
+	</script>
+
+<script type="text/javascript">
+
+$('.alphanumericvet').alphanumeric();
+
+var state = '';
+
+if (!(state == "ACTION_STATE_ADD" || state == "ACTION_STATE_EDIT")) { 
+    var vehicleNotFoundInDB = false;
+    var fitnessVerified = true;
+    var isVetRequired = false;
+    var insuaranceVerified = true;
+    var routePermitVerified = true;
+    var routePermitRequired = false;
+    var isInsuarancRequired = false;
+    
+    if (vehicleNotFoundInDB == true) {
+    	document.getElementById("vehicle.vehicleOwner.name").focus();
+    	document.getElementById("vehicle.vehicleOwner.name").select();
+    }else if(isVetRequired == true && document.getElementById("currentRevLicenseRecord.vetNo").value == ""){
+		document.getElementById("currentRevLicenseRecord.vetNo").focus();
+		document.getElementById("currentRevLicenseRecord.vetNo").select();
+	}else if(isInsuarancRequired == true && document.getElementById("insuranceExpiryDate").value == ""){
+		document.getElementById("insuranceExpiryDate").focus();
+		document.getElementById("insuranceExpiryDate").select();
+	} else if (routePermitRequired == true &&  document.getElementById("currentRevLicenseRecord.routePermitNo").value == ""){
+		document.getElementById("currentRevLicenseRecord.routePermitNo").focus();
+		document.getElementById("currentRevLicenseRecord.routePermitNo").select();
+	} else if (routePermitRequired == true &&  document.getElementById("routePermitExpiryDate").value == ""){
+		document.getElementById("routePermitExpiryDate").focus();
+		document.getElementById("routePermitExpiryDate").select();
+	} else if(insuaranceVerified == false){
+		document.getElementById("insuranceExpiryDate").focus();
+		document.getElementById("insuranceExpiryDate").select(); 
+	} else if (fitnessVerified == false){
+		document.getElementById("currentRevLicenseRecord.fitnessTestStatus").focus();
+		document.getElementById("currentRevLicenseRecord.fitnessTestStatus").select();
+	} else if (routePermitVerified == false){
+		document.getElementById("routePermitExpiryDate").focus();
+		document.getElementById("routePermitExpiryDate").select();
+	}
+	
+}
+
+function initDojo() {
+	if (!(false) || true) {
+		document.getElementById("routePermitExpiryDate").disabled=true;	
+	}
+}
+</script> <!-- License Arrears -->
+				
+				
+				
+				
+				
+				
+
+
+			
+<form id="vehicleGeneralMemo" name="saveVehicleGeneralMemo" onsubmit="return true;" action="/erl/saveVehicleGeneralMemo.action" method="post">
+<input type="hidden" id="msg" name="msg" value="Sorry, maximum characters allowed is 200." />
+<div id="section">
+	<div class="section_body">
+		<table width="100%" border="0" cellspacing="1" cellpadding="1">
+			<tr valign="top">
+				<td colspan="2" style="padding-left: 1px;">
+				<label>Comments:</label><br /> 
+				</td>
+			</tr>
+			<tr valign="top">
+				<td colspan="2">
+				<span id="generalMemo" style="display: inline">
+					<textarea name="vehicle.generalMemo" cols="45" rows="4" readonly="readonly" id="vehicle.generalMemo"></textarea>
+				</span>
+				<span id="newGeneralMemo" style="display: none">
+					<textarea name="vehicle.newGeneralMemo" cols="45" rows="4" id="vehicle.newGeneralMemo" onkeyup="validateMaxLength()"></textarea>
+				</span>
+				</td>
+			</tr>
+			
+		</table>
+	</div>
+</div>
+</form>
+
+
+
+
+				
+				</td>
+			</tr>
+		</table>
+		<div id="footer_section"> 
+			<table width="100%" border="0" cellspacing="0" cellpadding="0">
+				
+				
+					<tr>
+						<td width="45%"> 
+							<div class="actionbuttonLeft"><input type="button"
+								name="butPayArrearsOnly" id="butPayArrearsOnly"
+								value="Pay Arrears Only"
+								class="btn-disabled" disabled="disabled" tabindex="100"
+								onkeydown="return keyNav.handleKeyNavigation(event, this);"
+								onclick="location.href='showArrears.action'" />
+							</div>
+						</td>
+						<td>
+						<div class="actionbutton">  
+							<input type="button" name="butIssueLicence" id="butIssueLicence"
+								disabled="disabled"
+								onkeydown="return keyNav.handleKeyNavigation(event, this);"
+								value="Issue Licence"
+								class="btn-disabled btMedium" onclick="checkIsReissuence();"
+								  
+								/>
+						  
+							<input type="button" name="butCreateQuote" id="butCreateQuote"
+								onkeydown="return keyNav.handleKeyNavigation(event, this);"
+								disabled="disabled"
+								value="Create Quote"
+								class="btn-disabled btMedium" onclick="createQuoteInit()"
+								 
+								/>
+						 <input type="button" name="butCancelLicence" id="butCancelLicence"
+							value="Cancel"
+							class="btn btMedium"
+							onkeydown="return keyNav.handleKeyNavigation(event, this);"
+							onclick="location.href='cancelIssuenceForOperator.action'" />
+						</div>
+						</td>
+					</tr>
+				
+			</table>
+		</div>
+		</td>
+	</tr>
+</table>
+
+<div id="validateVETOuterDiv" style="display: none;">
+	<div id="validateVETInnerDiv">
+	</div>
+</div>
+
+<div id="validateInsuranceOuterDiv" style="display: none;">
+	<div id="validateInsuranceInnerDiv">
+	</div>
+</div>
+
+
+
+<div id="validateInsuranceOuterDiv" style="display: none;">
+
+
+<div id="dmtUpdate" style="display: none"><br />
+<h5>Following are the DMT Update for 10-8722 vehicle. Please kindly verify and confirm update</h5>
+
+<br />
+<div id="section">
+<div class="section_header">Vehicle / Owner Information
+</div>
+<div class="section_body">
+<table width="100%" border="0" cellspacing="1" cellpadding="1">
+	<tr valign="middle">
+		<td width="15%"><label>Owner</label></td>
+		<td colspan="5"><input type="text" name="vehicle.vehicleOwner.name" value="THILAKA VIDYAPATHI  MAPALAGAMAGE                                                                                        " readonly="readonly" id="vehicle_vehicleOwner_name" class="textbox_disabled bxfull"/></td>
+	</tr>
+	<tr valign="middle">
+		<td width="15%"><label>No</label>
+		</td>
+		<td><input type="text" name="vehicle.vehicleOwner.addr1" value="354/6  WAKWELLA RD            " readonly="readonly" id="vehicle_vehicleOwner_addr1" class="textbox_disabled bx110"/></td>
+		<td width="15%"><label>Street</label>
+		</td>
+		<td width="18%"><input type="text" name="vehicle.vehicleOwner.addr2" value="                              " readonly="readonly" id="vehicle_vehicleOwner_addr2" class="textbox_disabled bx140"/></td>
+		<td width="14%"><label>City</label>
+		</td>
+		<td><input type="text" name="vehicle.vehicleOwner.city" value="GALLE               " readonly="readonly" id="vehicle_vehicleOwner_city" class="textbox_disabled bx130"/></td>
+	</tr>
+	<tr>
+		<td colspan="6" class="space_height15">
+		<hr size="1" width="100%" />
+		</td>
+	</tr>
+</table>
+<table width="100%" border="0" cellspacing="1" cellpadding="1">
+	<tr valign="middle">
+		<td width="15%"><label> Chassis</label></td>
+		<td width="25%"><input type="text" name="vehicle.chassisNo" value="CB125T1015095" readonly="readonly" id="vehicle_chassisNo" class="textbox_disabled bx110"/></td>
+		<td width="15%"><label>Tare</label></td>
+		<td width="25%"><input type="text" name="vehicle.tareWeight" value="0.00" readonly="readonly" id="vehicle_tareWeight" class="textbox_disabled bx110 blueBG"/></td>
+		<td width="25%"><label>Authority</label>
+		</td>
+		<td width="25%"><select name="vehicle.authority.authorityId" disabled="disabled" id="vehicle_authority_authorityId" class="bx110">
+    <option value="332">&lt;UNKNOWN_AUTHORITY&gt;</option>
+    <option value="32">Agalawatte</option>
+    <option value="16">Attanagalla</option>
+    <option value="26">Bandaragama</option>
+    <option value="30">Beruwala</option>
+    <option value="22">Biyagama</option>
+    <option value="28">Bulathsinhala</option>
+    <option value="1">Colombo</option>
+    <option value="350">Colombo - Dam Street</option>
+    <option value="6">Dehi_Mt.La</option>
+    <option value="11">Diulapitiya</option>
+    <option value="333">DMT-Narahenpita</option>
+    <option value="29">Dodamgoda</option>
+    <option value="17">Gampaha</option>
+    <option value="10">Hanwella</option>
+    <option value="9">Homagama</option>
+    <option value="27">Horana</option>
+    <option value="36">Ingiriya</option>
+    <option value="3">Jayawardenapura</option>
+    <option value="18">Ja_Ela</option>
+    <option value="4">Kaduwela</option>
+    <option value="25">Kalutara</option>
+    <option value="8">Kasbewa</option>
+    <option value="12">Katana</option>
+    <option value="23">Kelaniya</option>
+    <option value="2">Kolonnawa</option>
+    <option value="38">Madurawala</option>
+    <option value="20">Mahara</option>
+    <option value="5">Maharagama</option>
+    <option value="31">Mathugama</option>
+    <option value="35">Millaniya</option>
+    <option value="14">Minuwangoda</option>
+    <option value="15">Mirigama</option>
+    <option value="7">Moratuwa</option>
+    <option value="13">Negambo</option>
+    <option value="37">Padukka</option>
+    <option value="34">PalindaNuwara</option>
+    <option value="24">Panadura</option>
+    <option value="39">Ratmalana</option>
+    <option value="349">Thimbirigasyaya</option>
+    <option value="21">Waake - Dompe</option>
+    <option value="33">Walallawita</option>
+    <option value="19">Wattala</option>
+    <option value="334">Web License -WP</option>
+
+
+</select></td>
+	</tr>
+	<tr valign="middle">
+		<td><label>Engine</label></td>
+		<td><input type="text" name="vehicle.engineNo" value="CB125TE101579                      " readonly="readonly" id="vehicle_engineNo" class="textbox_disabled bx110"/></td>
+		<td><label>Gross</label></td>
+		<td><input type="text" name="vehicle.grossWeight" value="0.00" readonly="readonly" id="vehicle_grossWeight" class="textbox_disabled bx110 blueBG"/></td>
+		<td><label>Fuel Type</label></td>
+		<td><select name="vehicle.fuel.fuelType" disabled="disabled" id="vehicle_fuel_fuelType" class="bx110">
+    <option value="6">&lt;NO_FUEL_TYPE&gt;</option>
+    <option value="2">DIESEL</option>
+    <option value="9">DIESEL-ELE</option>
+    <option value="5">ELECTRIC</option>
+    <option value="4">GAS</option>
+    <option value="3">KEROSINE</option>
+    <option value="7">NOT STATED</option>
+    <option value="1">PETROL</option>
+    <option value="8">PETROL-ELE</option>
+
+
+</select></td>
+	</tr>
+	<tr valign="middle">
+		<td><label>1st Reg</label></td>
+		<td><input type="text" name="vehicle.firstRegDate" value="11/27/79" readonly="readonly" id="vehicle_firstRegDate" class="textbox_disabled bx110 blueBG"/></td>
+
+		<td><label>Seats</label></td>
+		<td><input type="text" name="vehicle.noOfSeats" value="0" readonly="readonly" id="vehicle_noOfSeats" class="textbox_disabled bx110 blueBG"/></td>
+		<td><label>Class</label></td>
+		<td><select name="vehicle.vehicleClass.vehicleClassId" disabled="disabled" id="vehicle_vehicleClass_vehicleClassId" class="bx110">
+    <option value="12">-</option>
+    <option value="15">&lt;UNKNOWN&gt;</option>
+    <option value="19">AMBULANCE</option>
+    <option value="11">AMBULANCE, HEARSE</option>
+    <option value="2">DUAL PURPOSE</option>
+    <option value="20">HEARSE</option>
+    <option value="4">LAND VEHICLE</option>
+    <option value="17">LAND VEHICLE TRAILOR</option>
+    <option value="16">LORRY TRAILER</option>
+    <option value="1">MOTOR CAR</option>
+    <option value="13">MOTOR CAR A-Z</option>
+    <option value="5" selected="selected">MOTOR CYCLE</option>
+    <option value="24">MOTOR HOME</option>
+    <option value="3">MOTOR LORRY</option>
+    <option value="21">MOTOR TRICYCLE</option>
+    <option value="14">MOTOR TRICYCLE VAN</option>
+    <option value="9">OMNI BUS</option>
+    <option value="7">PRIVATE COACHES</option>
+    <option value="23">QUADRICYCLE</option>
+    <option value="6">S L T B</option>
+    <option value="22">SPECIAL PURPOSE VEHICLE</option>
+    <option value="10">THREE WHEELER</option>
+    <option value="18">TRADING VEHICLE</option>
+
+
+</select></td>
+	</tr>
+</table>
+</div>
+</div>
+<table width="100%" border="0" cellspacing="1" cellpadding="3">
+	<tr>
+		<td>&nbsp;</td>
+		<td>
+		<div class="actionbutton"><input type="submit" name="butYes"
+			id="butConfirm" value="Confirm" class="btn"
+			onclick="divwin.hide();return false;" /> <input type="submit"
+			name="butNo" id="butDecline" value="Decline" class="btn"
+			onclick="divwin.hide();return false;" /></div>
+		</td>
+	</tr>
+</table>
+</div>
+
+<div id="authority" style="display: none">
+<div class="section_body">
+			
+<form id="printLooseSlipForm" name="printLooseSlip" onsubmit="return true;" action="/erl/printLooseSlip.action" method="post">
+<table width="100%" border="0" cellspacing="1" cellpadding="1">
+	<tr><td colspan="2"><table width="100%">
+    <tr style="" id="sysmsg"><td>	<div class="errorSection"> 
+		
+	<ul>
+		<li><span> Different province vehicle. Cannot issue revenue licence
+</span></li>
+		<li><span> Different province vehicle. Cannot issue revenue licence
+</span></li>
+		<li><span> Different province vehicle. Cannot issue revenue licence
+</span></li>
+	</ul>
+	</div></td></tr>
+    </table>
+    </td></tr>
+    
+    
+	<tr>
+		<td width="50%">
+			<label id="printLooseSlipForm_vehicle_authority_authorityId" for="vehicle.authority.authorityId">Previous Licence Authority</label>:
+		</td>
+		
+		<td width="50%">
+		
+			<select name="vehicle.authority.authorityId" disabled="disabled" id="previousLicenseAuthority" class="bx110">
+    <option value="332">&lt;UNKNOWN_AUTHORITY&gt;</option>
+    <option value="32">Agalawatte</option>
+    <option value="16">Attanagalla</option>
+    <option value="26">Bandaragama</option>
+    <option value="30">Beruwala</option>
+    <option value="22">Biyagama</option>
+    <option value="28">Bulathsinhala</option>
+    <option value="1">Colombo</option>
+    <option value="350">Colombo - Dam Street</option>
+    <option value="6">Dehi_Mt.La</option>
+    <option value="11">Diulapitiya</option>
+    <option value="333">DMT-Narahenpita</option>
+    <option value="29">Dodamgoda</option>
+    <option value="17">Gampaha</option>
+    <option value="10">Hanwella</option>
+    <option value="9">Homagama</option>
+    <option value="27">Horana</option>
+    <option value="36">Ingiriya</option>
+    <option value="3">Jayawardenapura</option>
+    <option value="18">Ja_Ela</option>
+    <option value="4">Kaduwela</option>
+    <option value="25">Kalutara</option>
+    <option value="8">Kasbewa</option>
+    <option value="12">Katana</option>
+    <option value="23">Kelaniya</option>
+    <option value="2">Kolonnawa</option>
+    <option value="38">Madurawala</option>
+    <option value="20">Mahara</option>
+    <option value="5">Maharagama</option>
+    <option value="31">Mathugama</option>
+    <option value="35">Millaniya</option>
+    <option value="14">Minuwangoda</option>
+    <option value="15">Mirigama</option>
+    <option value="7">Moratuwa</option>
+    <option value="13">Negambo</option>
+    <option value="37">Padukka</option>
+    <option value="34">PalindaNuwara</option>
+    <option value="24">Panadura</option>
+    <option value="39">Ratmalana</option>
+    <option value="349">Thimbirigasyaya</option>
+    <option value="21">Waake - Dompe</option>
+    <option value="33">Walallawita</option>
+    <option value="19">Wattala</option>
+    <option value="334">Web License -WP</option>
+
+
+</select>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<label id="printLooseSlipForm_newAuthorityName" for="newAuthorityName">New Licence Authority</label>:
+		</td>
+		
+		<td>
+		
+			<input type="text" name="newAuthorityName" maxlength="30" value="" id="printLooseSlipForm_newAuthorityName"/>
+			
+		</td>
+	</tr>
+	
+	<tr>
+		<td colspan="2" valign="top" class="space_height10"></td>
+	</tr>
+	<tr>
+		<td colspan="2" valign="top">
+		<div class="actionbutton">
+			
+			<input type="button" name="button2" id="button7" value="Print Loose Slip" class="btn"
+			onclick="submitPrintLoosSlipForm();divwin.hide();return false;" /> 
+			
+			<input type="button" name="button2" id="button2" 
+			value="Cancel" class="btn"
+			onclick="location.href='searchVehicle.action'" />
+		
+		</div>
+		</td>
+	</tr>
+</table>
+</form>
+
+
+
+
+</div>
+</div>
+
+<div id="overrideVehiclePanel" style="display: none">
+<div class="section_body">
+<form id="overrideVehicleForm" action="createQuoteShow.action"
+	method="post"><input type="hidden" name="overrideVehicle"
+	id="overrideVehicle" />
+<table width="100%" border="0" cellspacing="0" cellpadding="2">
+	<tr>
+		<td>
+		<table width="100%" border="0" cellspacing="0" cellpadding="2">
+			<tr>
+				<td valign="top" width="100%">
+				<table width="100%" border="0" cellspacing="0" cellpadding="3"
+					class="tableBg">
+					<tr>
+						<td style="vertical-align: top; width: 3%;"><img
+							src="images/main/question.png" width="32" height="32" alt=""
+							title="" /></td>
+						<td style="width: 97%;">
+						<table>
+							<tr>
+								<td><label>:</label>
+								</td>
+							</tr>
+							<tr>
+								<td>
+								<table>
+									<tr>
+										<td><label>Quote ID:</label></td>
+										<td></td>
+									</tr>
+									<tr>
+										<td><label>Organisation:</label></td>
+										<td></td>
+									</tr>
+								</table>
+								</td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+							</tr>
+							<tr>
+								<td>Do you want to remove this vehicle from the above quote and add it to this quote?</td>
+							</tr>
+							<tr>
+								<td>&nbsp;</td>
+							</tr>
+							<tr>
+								<td><label><b>Note:</b></label></td>
+							</tr>
+							<tr>
+								<td>
+								<ul>
+									<li>The vehicle would be permanently removed from the above quote.</li>
+									<li>Once the vehicle is permanently removed from the above quote, you cannot undo this operation.</li>
+								</ul>
+								</td>
+							</tr>
+						</table>
+						</td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<table width="100%" border="0" cellspacing="1" cellpadding="2"
+					class="">
+					<tr>
+						<td align="right"><input name="butOk" type="button"
+							class="btn btSmall" id="butOk"
+							value="Ok"
+							onclick="addOverrideVehicle();"
+							title="Ok" />
+						<input name="butCancel" type="button" class="btn btSmall"
+							id="butCancel"
+							value="Cancel"
+							onclick="divwin.hide();return false;"
+							title="Cancel" />
+						</td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+</form>
+</div>
+</div>
+
+
+<!--  pop up for reisuence confirmation -->
+<div id="reissuenceConfirmation" style="display: none">
+<div class="section_body">
+<table width="100%" border="0" cellspacing="0" cellpadding="2">
+	<tr>
+		<td>
+		<table width="100%" border="0" cellspacing="0" cellpadding="2">
+			<tr>
+				<td valign="top" width="100%">
+				<table width="100%" border="0" cellspacing="0" cellpadding="3"
+					class="tableBg">
+					<tr>
+						<td style="vertical-align: top; width: 3%;"><img
+							src="images/main/question.png" width="34" height="32"
+							alt="" title="" /></td>
+						<td style="width: 97%;">Are you sure you want to process a reissuance for the vehicle <b>10-8722</b></td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+			<tr>
+				<td>
+				<table width="100%" border="0" cellspacing="1" cellpadding="2"
+					class="">
+					<tr>
+						<td align="right">
+						<input name="butUpdateOk" type="button" class="btn btSmall" id="butUpdateOk"
+							value="Ok" onclick="issueLicence();" />
+						<input name="butUpdateCancel" type="button"
+							class="btn btSmall" id="butUpdateCancel" value="Cancel"
+							onclick="divWinReconfiramtion.hide();" />							
+						</td>
+					</tr>
+				</table>
+				</td>
+			</tr>
+		</table>
+		</td>
+	</tr>
+</table>
+</div>
+</div>
+
+
+<script type="text/javascript">
+	dojo.addOnLoad(initDojo);
+	var state = '';
+	if (state != null && state == 'PRINT_LOOSE_SLIP') {
+		
+			divwin=dhtmlmodal.open('divbox', 'div', 'authority', 'eRevenue Licence', 'width=450px,height=280px,left=200px,top=150px,resize=0,scrolling=0');		
+		
+		
+	}
+	
+	if (state != null && state == 'PRINTING_LOOSE_SLIP') {
+		showLooseSlipPrintPreview();
+	}
+
+</script>
+	<div id="changePasswordOuterDiv" style="display:none">
+		<div id="changePasswordInnerDiv" >
+		</div>
+	</div>
+	
+
+
+
+
+
+<script type="text/javascript">
+if (document.getElementById('butchangePasswordMessageOk')) {
+	document.getElementById('butchangePasswordMessageOk').focus();
+}
+</script>
+</body>
+</html>
