@@ -43,6 +43,11 @@
             <stringProp name="Argument.value">${__P(thinktime2,10000)}</stringProp>
             <stringProp name="Argument.metadata">=</stringProp>
           </elementProp>
+          <elementProp name="thinktime3" elementType="Argument">
+            <stringProp name="Argument.name">thinktime3</stringProp>
+            <stringProp name="Argument.value">${__P(thinktime2,60000)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
         </collectionProp>
       </Arguments>
       <hashTree/>
@@ -1442,7 +1447,7 @@ f.close();</stringProp>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime3}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -2970,7 +2975,7 @@ f.close();</stringProp>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime3}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -4494,7 +4499,7 @@ f.close();</stringProp>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime3}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -6042,7 +6047,7 @@ f.close();</stringProp>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime3}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -7566,7 +7571,7 @@ f.close();</stringProp>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime3}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -7575,7 +7580,7 @@ f.close();</stringProp>
                 </UniformRandomTimer>
                 <hashTree/>
               </hashTree>
-              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="false">
+              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
                 <stringProp name="ConstantTimer.delay">4000</stringProp>
               </ConstantTimer>
               <hashTree/>
@@ -9094,7 +9099,7 @@ f.close();</stringProp>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime3}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -9103,7 +9108,7 @@ f.close();</stringProp>
                 </UniformRandomTimer>
                 <hashTree/>
               </hashTree>
-              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="false">
+              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
                 <stringProp name="ConstantTimer.delay">4000</stringProp>
               </ConstantTimer>
               <hashTree/>
@@ -10622,7 +10627,7 @@ f.close();</stringProp>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime3}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -10631,7 +10636,7 @@ f.close();</stringProp>
                 </UniformRandomTimer>
                 <hashTree/>
               </hashTree>
-              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="false">
+              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
                 <stringProp name="ConstantTimer.delay">4000</stringProp>
               </ConstantTimer>
               <hashTree/>
