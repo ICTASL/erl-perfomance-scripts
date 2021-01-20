@@ -31,6 +31,21 @@
         <stringProp name="HTTPSampler.response_timeout"></stringProp>
       </ConfigTestElement>
       <hashTree/>
+      <Arguments guiclass="ArgumentsPanel" testclass="Arguments" testname="User Defined Variables" enabled="true">
+        <collectionProp name="Arguments.arguments">
+          <elementProp name="thinktime" elementType="Argument">
+            <stringProp name="Argument.name">thinktime</stringProp>
+            <stringProp name="Argument.value">${__P(thinktime,5000)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+          <elementProp name="thinktime2" elementType="Argument">
+            <stringProp name="Argument.name">thinktime2</stringProp>
+            <stringProp name="Argument.value">${__P(thinktime2,10000)}</stringProp>
+            <stringProp name="Argument.metadata">=</stringProp>
+          </elementProp>
+        </collectionProp>
+      </Arguments>
+      <hashTree/>
       <ThreadGroup guiclass="ThreadGroupGui" testclass="ThreadGroup" testname="Western Province " enabled="true">
         <stringProp name="ThreadGroup.on_sample_error">continue</stringProp>
         <elementProp name="ThreadGroup.main_controller" elementType="LoopController" guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
@@ -54,10 +69,10 @@
             <stringProp name="116079">url</stringProp>
           </collectionProp>
           <collectionProp name="UserParameters.thread_values">
-            <collectionProp name="-807405570">
-              <stringProp name="-683092566">wp.${__P(domain,testenv.gov.lk)}</stringProp>
+            <collectionProp name="-1567390004">
+              <stringProp name="762890387">wp.${__P(domain,erl.lgcc.gov.lk)}</stringProp>
               <stringProp name="99617003">https</stringProp>
-              <stringProp name="-683092566">wp.${__P(domain,testenv.gov.lk)}</stringProp>
+              <stringProp name="762890387">wp.${__P(domain,erl.lgcc.gov.lk)}</stringProp>
             </collectionProp>
           </collectionProp>
           <boolProp name="UserParameters.per_iteration">false</boolProp>
@@ -152,7 +167,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -332,7 +347,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -498,7 +513,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -567,7 +582,7 @@
             </hashTree>
             <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
               <boolProp name="LoopController.continue_forever">true</boolProp>
-              <stringProp name="LoopController.loops">160</stringProp>
+              <stringProp name="LoopController.loops">700</stringProp>
             </LoopController>
             <hashTree>
               <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
@@ -674,15 +689,25 @@
                   <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
                 </HtmlExtractor>
                 <hashTree/>
+                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="STATUS" enabled="true">
+                  <stringProp name="HtmlExtractor.refname">STATUS</stringProp>
+                  <stringProp name="HtmlExtractor.expr">#btn_LicenceStateExpired</stringProp>
+                  <stringProp name="HtmlExtractor.attribute"></stringProp>
+                  <stringProp name="HtmlExtractor.default">HI</stringProp>
+                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                  <stringProp name="HtmlExtractor.match_number"></stringProp>
+                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
+                </HtmlExtractor>
+                <hashTree/>
                 <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
                   <stringProp name="ConstantTimer.delay">4000</stringProp>
                 </ConstantTimer>
                 <hashTree/>
               </hashTree>
-              <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
+              <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -700,7 +725,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -787,7 +812,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">10000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime2}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -963,11 +988,42 @@
                   <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
                 </HtmlExtractor>
                 <hashTree/>
+                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="VALIDITY" enabled="true">
+                  <stringProp name="HtmlExtractor.refname">VALIDITY</stringProp>
+                  <stringProp name="HtmlExtractor.expr">#btn_LicenceStateVerified</stringProp>
+                  <stringProp name="HtmlExtractor.attribute"></stringProp>
+                  <stringProp name="HtmlExtractor.default">UNDEFINED</stringProp>
+                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                  <stringProp name="HtmlExtractor.match_number"></stringProp>
+                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
+                </HtmlExtractor>
+                <hashTree/>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="SaveHtmlResponse" enabled="true">
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="script">def status = vars.get(&quot;VALIDITY&quot;);
+
+if(status == &quot;UNDEFINED&quot;)
+{
+def filename = vars.get(&quot;VEHICLENUMBER&quot;) + &quot;response.html&quot;;
+File file = new File(&quot;responses/&quot;+filename);
+
+FileWriter fstream= new FileWriter(file,true);
+BufferedWriter out = new BufferedWriter(fstream);
+out.write(prev.getResponseDataAsString());
+out.close();
+fstream.close();
+}
+</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
               </hashTree>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -1032,7 +1088,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">10000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime2}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -1212,7 +1268,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">10000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime2}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -1274,11 +1330,35 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
+                <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <boolProp name="resetInterpreter">false</boolProp>
+                  <stringProp name="script">import org.apache.jmeter.services.FileServer;
+
+String path=FileServer.getFileServer().getBaseDir();
+
+var1= vars.get(&quot;VEHICLENUMBER&quot;); 
+var2= vars.get(&quot;USERNAME&quot;);
+var3= vars.get(&quot;EXPIRE&quot;); 
+var4= vars.get(&quot;STATUS&quot;);
+var5= vars.get(&quot;VALIDITY&quot;); 
+var8 = var1+&quot;,&quot;+var2+&quot;,&quot;+var3+&quot;,&quot;+var4+&quot;,&quot;+var5;
+
+f = new FileOutputStream(&quot;westerndata.csv&quot;,true);
+p = new PrintStream(f);
+ 
+this.interpreter.setOut(p); 
+p.println(var8);
+
+f.close();</stringProp>
+                </BeanShellPreProcessor>
+                <hashTree/>
               </hashTree>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">6000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -1344,7 +1424,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -1359,10 +1439,10 @@
                 <boolProp name="displaySystemProperties">false</boolProp>
               </DebugSampler>
               <hashTree/>
-              <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
+              <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -1379,7 +1459,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -1445,7 +1525,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">0</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -1615,7 +1695,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -1795,7 +1875,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -1961,7 +2041,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -2030,7 +2110,7 @@
             </hashTree>
             <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
               <boolProp name="LoopController.continue_forever">true</boolProp>
-              <stringProp name="LoopController.loops">120</stringProp>
+              <stringProp name="LoopController.loops">500</stringProp>
             </LoopController>
             <hashTree>
               <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
@@ -2121,7 +2201,7 @@
                   <stringProp name="HtmlExtractor.refname">LICENCE</stringProp>
                   <stringProp name="HtmlExtractor.expr">#previousLic</stringProp>
                   <stringProp name="HtmlExtractor.attribute">value</stringProp>
-                  <stringProp name="HtmlExtractor.default">HI</stringProp>
+                  <stringProp name="HtmlExtractor.default">NOTFOUND</stringProp>
                   <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
                   <stringProp name="HtmlExtractor.match_number"></stringProp>
                   <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
@@ -2131,21 +2211,31 @@
                   <stringProp name="HtmlExtractor.refname">EXPIRE</stringProp>
                   <stringProp name="HtmlExtractor.expr">#insuranceExpiryDate</stringProp>
                   <stringProp name="HtmlExtractor.attribute">value</stringProp>
-                  <stringProp name="HtmlExtractor.default">HI</stringProp>
+                  <stringProp name="HtmlExtractor.default">NOTFOUND</stringProp>
+                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                  <stringProp name="HtmlExtractor.match_number"></stringProp>
+                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
+                </HtmlExtractor>
+                <hashTree/>
+                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="STATUS" enabled="true">
+                  <stringProp name="HtmlExtractor.refname">STATUS</stringProp>
+                  <stringProp name="HtmlExtractor.expr">#btn_LicenceStateExpired</stringProp>
+                  <stringProp name="HtmlExtractor.attribute"></stringProp>
+                  <stringProp name="HtmlExtractor.default">NOTFOUND</stringProp>
                   <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
                   <stringProp name="HtmlExtractor.match_number"></stringProp>
                   <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
                 </HtmlExtractor>
                 <hashTree/>
                 <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
-                  <stringProp name="ConstantTimer.delay">4000</stringProp>
+                  <stringProp name="ConstantTimer.delay">${thinktime}</stringProp>
                 </ConstantTimer>
                 <hashTree/>
               </hashTree>
-              <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
+              <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -2163,7 +2253,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -2250,7 +2340,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">10000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -2426,11 +2516,42 @@
                   <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
                 </HtmlExtractor>
                 <hashTree/>
+                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="VALIDITY" enabled="true">
+                  <stringProp name="HtmlExtractor.refname">VALIDITY</stringProp>
+                  <stringProp name="HtmlExtractor.expr">#btn_LicenceStateVerified</stringProp>
+                  <stringProp name="HtmlExtractor.attribute"></stringProp>
+                  <stringProp name="HtmlExtractor.default">UNDEFINED</stringProp>
+                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                  <stringProp name="HtmlExtractor.match_number"></stringProp>
+                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
+                </HtmlExtractor>
+                <hashTree/>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="SaveHtmlResponse" enabled="true">
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="script">def status = vars.get(&quot;VALIDITY&quot;);
+
+if(status == &quot;UNDEFINED&quot;)
+{
+def filename = vars.get(&quot;VEHICLENUMBER&quot;) + &quot;response.html&quot;;
+File file = new File(&quot;responses/&quot;+filename);
+
+FileWriter fstream= new FileWriter(file,true);
+BufferedWriter out = new BufferedWriter(fstream);
+out.write(prev.getResponseDataAsString());
+out.close();
+fstream.close();
+}
+</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
               </hashTree>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -2495,7 +2616,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">10000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime2}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -2675,7 +2796,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">10000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime2}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -2737,11 +2858,35 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
+                <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <boolProp name="resetInterpreter">false</boolProp>
+                  <stringProp name="script">import org.apache.jmeter.services.FileServer;
+
+String path=FileServer.getFileServer().getBaseDir();
+
+var1= vars.get(&quot;VEHICLENUMBER&quot;); 
+var2= vars.get(&quot;USERNAME&quot;);
+var3= vars.get(&quot;EXPIRE&quot;); 
+var4= vars.get(&quot;STATUS&quot;);
+var5= vars.get(&quot;VALIDITY&quot;); 
+var8 = var1+&quot;,&quot;+var2+&quot;,&quot;+var3+&quot;,&quot;+var4+&quot;,&quot;+var5;
+
+f = new FileOutputStream(&quot;centraldata.csv&quot;,true);
+p = new PrintStream(f);
+ 
+this.interpreter.setOut(p); 
+p.println(var8);
+
+f.close();</stringProp>
+                </BeanShellPreProcessor>
+                <hashTree/>
               </hashTree>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">6000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -2807,7 +2952,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -2822,10 +2967,10 @@
                 <boolProp name="displaySystemProperties">false</boolProp>
               </DebugSampler>
               <hashTree/>
-              <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
+              <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -2834,15 +2979,11 @@
                 </UniformRandomTimer>
                 <hashTree/>
               </hashTree>
-              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
-                <stringProp name="ConstantTimer.delay">4000</stringProp>
-              </ConstantTimer>
-              <hashTree/>
             </hashTree>
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -2908,7 +3049,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -3078,7 +3219,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -3258,7 +3399,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -3424,7 +3565,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -3493,7 +3634,7 @@
             </hashTree>
             <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
               <boolProp name="LoopController.continue_forever">true</boolProp>
-              <stringProp name="LoopController.loops">120</stringProp>
+              <stringProp name="LoopController.loops">500</stringProp>
             </LoopController>
             <hashTree>
               <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
@@ -3600,15 +3741,25 @@
                   <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
                 </HtmlExtractor>
                 <hashTree/>
+                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="STATUS" enabled="true">
+                  <stringProp name="HtmlExtractor.refname">STATUS</stringProp>
+                  <stringProp name="HtmlExtractor.expr">#btn_LicenceStateExpired</stringProp>
+                  <stringProp name="HtmlExtractor.attribute"></stringProp>
+                  <stringProp name="HtmlExtractor.default">HI</stringProp>
+                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                  <stringProp name="HtmlExtractor.match_number"></stringProp>
+                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
+                </HtmlExtractor>
+                <hashTree/>
                 <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
                   <stringProp name="ConstantTimer.delay">4000</stringProp>
                 </ConstantTimer>
                 <hashTree/>
               </hashTree>
-              <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
+              <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -3626,7 +3777,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -3713,7 +3864,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">10000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime2}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -3889,11 +4040,42 @@
                   <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
                 </HtmlExtractor>
                 <hashTree/>
+                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="VALIDITY" enabled="true">
+                  <stringProp name="HtmlExtractor.refname">VALIDITY</stringProp>
+                  <stringProp name="HtmlExtractor.expr">#btn_LicenceStateVerified</stringProp>
+                  <stringProp name="HtmlExtractor.attribute"></stringProp>
+                  <stringProp name="HtmlExtractor.default">UNDEFINED</stringProp>
+                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                  <stringProp name="HtmlExtractor.match_number"></stringProp>
+                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
+                </HtmlExtractor>
+                <hashTree/>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="SaveHtmlResponse" enabled="true">
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="script">def status = vars.get(&quot;VALIDITY&quot;);
+
+if(status == &quot;UNDEFINED&quot;)
+{
+def filename = vars.get(&quot;VEHICLENUMBER&quot;) + &quot;response.html&quot;;
+File file = new File(&quot;responses/&quot;+filename);
+
+FileWriter fstream= new FileWriter(file,true);
+BufferedWriter out = new BufferedWriter(fstream);
+out.write(prev.getResponseDataAsString());
+out.close();
+fstream.close();
+}
+</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
               </hashTree>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -3958,7 +4140,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">10000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime2}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -4138,7 +4320,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">10000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime2}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -4200,11 +4382,35 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
+                <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <boolProp name="resetInterpreter">false</boolProp>
+                  <stringProp name="script">import org.apache.jmeter.services.FileServer;
+
+String path=FileServer.getFileServer().getBaseDir();
+
+var1= vars.get(&quot;VEHICLENUMBER&quot;); 
+var2= vars.get(&quot;USERNAME&quot;);
+var3= vars.get(&quot;EXPIRE&quot;); 
+var4= vars.get(&quot;STATUS&quot;);
+var5= vars.get(&quot;VALIDITY&quot;); 
+var8 = var1+&quot;,&quot;+var2+&quot;,&quot;+var3+&quot;,&quot;+var4+&quot;,&quot;+var5;
+
+f = new FileOutputStream(&quot;notherndata.csv&quot;,true);
+p = new PrintStream(f);
+ 
+this.interpreter.setOut(p); 
+p.println(var8);
+
+f.close();</stringProp>
+                </BeanShellPreProcessor>
+                <hashTree/>
               </hashTree>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">6000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -4270,7 +4476,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -4285,10 +4491,10 @@
                 <boolProp name="displaySystemProperties">false</boolProp>
               </DebugSampler>
               <hashTree/>
-              <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
+              <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -4297,15 +4503,11 @@
                 </UniformRandomTimer>
                 <hashTree/>
               </hashTree>
-              <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
-                <stringProp name="ConstantTimer.delay">4000</stringProp>
-              </ConstantTimer>
-              <hashTree/>
             </hashTree>
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -4371,7 +4573,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -4729,7 +4931,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -4895,7 +5097,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -4964,7 +5166,7 @@
             </hashTree>
             <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
               <boolProp name="LoopController.continue_forever">true</boolProp>
-              <stringProp name="LoopController.loops">120</stringProp>
+              <stringProp name="LoopController.loops">500</stringProp>
             </LoopController>
             <hashTree>
               <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
@@ -5071,15 +5273,25 @@
                   <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
                 </HtmlExtractor>
                 <hashTree/>
+                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="STATUS" enabled="true">
+                  <stringProp name="HtmlExtractor.refname">STATUS</stringProp>
+                  <stringProp name="HtmlExtractor.expr">#btn_LicenceStateExpired</stringProp>
+                  <stringProp name="HtmlExtractor.attribute"></stringProp>
+                  <stringProp name="HtmlExtractor.default">HI</stringProp>
+                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                  <stringProp name="HtmlExtractor.match_number"></stringProp>
+                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
+                </HtmlExtractor>
+                <hashTree/>
                 <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
                   <stringProp name="ConstantTimer.delay">4000</stringProp>
                 </ConstantTimer>
                 <hashTree/>
               </hashTree>
-              <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
+              <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -5097,7 +5309,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -5184,7 +5396,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">10000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime2}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -5360,11 +5572,42 @@
                   <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
                 </HtmlExtractor>
                 <hashTree/>
+                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="VALIDITY" enabled="true">
+                  <stringProp name="HtmlExtractor.refname">VALIDITY</stringProp>
+                  <stringProp name="HtmlExtractor.expr">#btn_LicenceStateVerified</stringProp>
+                  <stringProp name="HtmlExtractor.attribute"></stringProp>
+                  <stringProp name="HtmlExtractor.default">UNDEFINED</stringProp>
+                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                  <stringProp name="HtmlExtractor.match_number"></stringProp>
+                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
+                </HtmlExtractor>
+                <hashTree/>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="SaveHtmlResponse" enabled="true">
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="script">def status = vars.get(&quot;VALIDITY&quot;);
+
+if(status == &quot;UNDEFINED&quot;)
+{
+def filename = vars.get(&quot;VEHICLENUMBER&quot;) + &quot;response.html&quot;;
+File file = new File(&quot;responses/&quot;+filename);
+
+FileWriter fstream= new FileWriter(file,true);
+BufferedWriter out = new BufferedWriter(fstream);
+out.write(prev.getResponseDataAsString());
+out.close();
+fstream.close();
+}
+</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
               </hashTree>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -5429,7 +5672,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">10000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime2}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -5609,7 +5852,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">10000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime2}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -5671,11 +5914,35 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
+                <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <boolProp name="resetInterpreter">false</boolProp>
+                  <stringProp name="script">import org.apache.jmeter.services.FileServer;
+
+String path=FileServer.getFileServer().getBaseDir();
+
+var1= vars.get(&quot;VEHICLENUMBER&quot;); 
+var2= vars.get(&quot;USERNAME&quot;);
+var3= vars.get(&quot;EXPIRE&quot;); 
+var4= vars.get(&quot;STATUS&quot;);
+var5= vars.get(&quot;VALIDITY&quot;); 
+var8 = var1+&quot;,&quot;+var2+&quot;,&quot;+var3+&quot;,&quot;+var4+&quot;,&quot;+var5;
+
+f = new FileOutputStream(&quot;easterndata.csv&quot;,true);
+p = new PrintStream(f);
+ 
+this.interpreter.setOut(p); 
+p.println(var8);
+
+f.close();</stringProp>
+                </BeanShellPreProcessor>
+                <hashTree/>
               </hashTree>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">6000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -5741,7 +6008,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -5756,10 +6023,10 @@
                 <boolProp name="displaySystemProperties">false</boolProp>
               </DebugSampler>
               <hashTree/>
-              <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
+              <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -5775,7 +6042,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -5788,7 +6055,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -5854,7 +6121,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -6024,7 +6291,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -6204,7 +6471,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -6370,7 +6637,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -6439,7 +6706,7 @@
             </hashTree>
             <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
               <boolProp name="LoopController.continue_forever">true</boolProp>
-              <stringProp name="LoopController.loops">120</stringProp>
+              <stringProp name="LoopController.loops">500</stringProp>
             </LoopController>
             <hashTree>
               <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
@@ -6546,15 +6813,25 @@
                   <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
                 </HtmlExtractor>
                 <hashTree/>
+                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="STATUS" enabled="true">
+                  <stringProp name="HtmlExtractor.refname">STATUS</stringProp>
+                  <stringProp name="HtmlExtractor.expr">#btn_LicenceStateExpired</stringProp>
+                  <stringProp name="HtmlExtractor.attribute"></stringProp>
+                  <stringProp name="HtmlExtractor.default">HI</stringProp>
+                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                  <stringProp name="HtmlExtractor.match_number"></stringProp>
+                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
+                </HtmlExtractor>
+                <hashTree/>
                 <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
                   <stringProp name="ConstantTimer.delay">4000</stringProp>
                 </ConstantTimer>
                 <hashTree/>
               </hashTree>
-              <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
+              <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -6572,7 +6849,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -6659,7 +6936,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">10000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime2}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -6835,11 +7112,42 @@
                   <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
                 </HtmlExtractor>
                 <hashTree/>
+                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="VALIDITY" enabled="true">
+                  <stringProp name="HtmlExtractor.refname">VALIDITY</stringProp>
+                  <stringProp name="HtmlExtractor.expr">#btn_LicenceStateVerified</stringProp>
+                  <stringProp name="HtmlExtractor.attribute"></stringProp>
+                  <stringProp name="HtmlExtractor.default">UNDEFINED</stringProp>
+                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                  <stringProp name="HtmlExtractor.match_number"></stringProp>
+                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
+                </HtmlExtractor>
+                <hashTree/>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="SaveHtmlResponse" enabled="true">
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="script">def status = vars.get(&quot;VALIDITY&quot;);
+
+if(status == &quot;UNDEFINED&quot;)
+{
+def filename = vars.get(&quot;VEHICLENUMBER&quot;) + &quot;response.html&quot;;
+File file = new File(&quot;responses/&quot;+filename);
+
+FileWriter fstream= new FileWriter(file,true);
+BufferedWriter out = new BufferedWriter(fstream);
+out.write(prev.getResponseDataAsString());
+out.close();
+fstream.close();
+}
+</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
               </hashTree>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -6904,7 +7212,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">10000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime2}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -7084,7 +7392,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">10000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime2}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -7146,11 +7454,35 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
+                <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <boolProp name="resetInterpreter">false</boolProp>
+                  <stringProp name="script">import org.apache.jmeter.services.FileServer;
+
+String path=FileServer.getFileServer().getBaseDir();
+
+var1= vars.get(&quot;VEHICLENUMBER&quot;); 
+var2= vars.get(&quot;USERNAME&quot;);
+var3= vars.get(&quot;EXPIRE&quot;); 
+var4= vars.get(&quot;STATUS&quot;);
+var5= vars.get(&quot;VALIDITY&quot;); 
+var8 = var1+&quot;,&quot;+var2+&quot;,&quot;+var3+&quot;,&quot;+var4+&quot;,&quot;+var5;
+
+f = new FileOutputStream(&quot;sbdata.csv&quot;,true);
+p = new PrintStream(f);
+ 
+this.interpreter.setOut(p); 
+p.println(var8);
+
+f.close();</stringProp>
+                </BeanShellPreProcessor>
+                <hashTree/>
               </hashTree>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">6000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -7216,7 +7548,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -7231,10 +7563,10 @@
                 <boolProp name="displaySystemProperties">false</boolProp>
               </DebugSampler>
               <hashTree/>
-              <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
+              <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -7251,7 +7583,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -7317,7 +7649,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -7487,7 +7819,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -7667,7 +7999,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -7833,7 +8165,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -7902,7 +8234,7 @@
             </hashTree>
             <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
               <boolProp name="LoopController.continue_forever">true</boolProp>
-              <stringProp name="LoopController.loops">120</stringProp>
+              <stringProp name="LoopController.loops">500</stringProp>
             </LoopController>
             <hashTree>
               <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
@@ -8009,15 +8341,25 @@
                   <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
                 </HtmlExtractor>
                 <hashTree/>
+                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="STATUS" enabled="true">
+                  <stringProp name="HtmlExtractor.refname">STATUS</stringProp>
+                  <stringProp name="HtmlExtractor.expr">#btn_LicenceStateExpired</stringProp>
+                  <stringProp name="HtmlExtractor.attribute"></stringProp>
+                  <stringProp name="HtmlExtractor.default">HI</stringProp>
+                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                  <stringProp name="HtmlExtractor.match_number"></stringProp>
+                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
+                </HtmlExtractor>
+                <hashTree/>
                 <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
                   <stringProp name="ConstantTimer.delay">4000</stringProp>
                 </ConstantTimer>
                 <hashTree/>
               </hashTree>
-              <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
+              <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -8035,7 +8377,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -8122,7 +8464,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">10000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime2}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -8298,11 +8640,42 @@
                   <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
                 </HtmlExtractor>
                 <hashTree/>
+                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="VALIDITY" enabled="true">
+                  <stringProp name="HtmlExtractor.refname">VALIDITY</stringProp>
+                  <stringProp name="HtmlExtractor.expr">#btn_LicenceStateVerified</stringProp>
+                  <stringProp name="HtmlExtractor.attribute"></stringProp>
+                  <stringProp name="HtmlExtractor.default">UNDEFINED</stringProp>
+                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                  <stringProp name="HtmlExtractor.match_number"></stringProp>
+                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
+                </HtmlExtractor>
+                <hashTree/>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="SaveHtmlResponse" enabled="true">
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="script">def status = vars.get(&quot;VALIDITY&quot;);
+
+if(status == &quot;UNDEFINED&quot;)
+{
+def filename = vars.get(&quot;VEHICLENUMBER&quot;) + &quot;response.html&quot;;
+File file = new File(&quot;responses/&quot;+filename);
+
+FileWriter fstream= new FileWriter(file,true);
+BufferedWriter out = new BufferedWriter(fstream);
+out.write(prev.getResponseDataAsString());
+out.close();
+fstream.close();
+}
+</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
               </hashTree>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -8367,7 +8740,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">10000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime2}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -8547,7 +8920,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">10000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime2}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -8609,11 +8982,35 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
+                <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <boolProp name="resetInterpreter">false</boolProp>
+                  <stringProp name="script">import org.apache.jmeter.services.FileServer;
+
+String path=FileServer.getFileServer().getBaseDir();
+
+var1= vars.get(&quot;VEHICLENUMBER&quot;); 
+var2= vars.get(&quot;USERNAME&quot;);
+var3= vars.get(&quot;EXPIRE&quot;); 
+var4= vars.get(&quot;STATUS&quot;);
+var5= vars.get(&quot;VALIDITY&quot;); 
+var8 = var1+&quot;,&quot;+var2+&quot;,&quot;+var3+&quot;,&quot;+var4+&quot;,&quot;+var5;
+
+f = new FileOutputStream(&quot;nwdata.csv&quot;,true);
+p = new PrintStream(f);
+ 
+this.interpreter.setOut(p); 
+p.println(var8);
+
+f.close();</stringProp>
+                </BeanShellPreProcessor>
+                <hashTree/>
               </hashTree>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">6000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -8679,7 +9076,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -8694,10 +9091,10 @@
                 <boolProp name="displaySystemProperties">false</boolProp>
               </DebugSampler>
               <hashTree/>
-              <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
+              <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -8714,7 +9111,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -8780,7 +9177,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">0</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -8950,7 +9347,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -9130,7 +9527,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -9296,7 +9693,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">5000</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -9365,7 +9762,7 @@
             </hashTree>
             <LoopController guiclass="LoopControlPanel" testclass="LoopController" testname="Loop Controller" enabled="true">
               <boolProp name="LoopController.continue_forever">true</boolProp>
-              <stringProp name="LoopController.loops">120</stringProp>
+              <stringProp name="LoopController.loops">500</stringProp>
             </LoopController>
             <hashTree>
               <CSVDataSet guiclass="TestBeanGUI" testclass="CSVDataSet" testname="CSV Data Set Config" enabled="true">
@@ -9472,15 +9869,25 @@
                   <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
                 </HtmlExtractor>
                 <hashTree/>
+                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="STATUS" enabled="true">
+                  <stringProp name="HtmlExtractor.refname">STATUS</stringProp>
+                  <stringProp name="HtmlExtractor.expr">#btn_LicenceStateExpired</stringProp>
+                  <stringProp name="HtmlExtractor.attribute"></stringProp>
+                  <stringProp name="HtmlExtractor.default">HI</stringProp>
+                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                  <stringProp name="HtmlExtractor.match_number"></stringProp>
+                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
+                </HtmlExtractor>
+                <hashTree/>
                 <ConstantTimer guiclass="ConstantTimerGui" testclass="ConstantTimer" testname="Constant Timer" enabled="true">
                   <stringProp name="ConstantTimer.delay">4000</stringProp>
                 </ConstantTimer>
                 <hashTree/>
               </hashTree>
-              <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
+              <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -9498,7 +9905,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -9585,7 +9992,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">10000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime2}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -9761,11 +10168,42 @@
                   <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
                 </HtmlExtractor>
                 <hashTree/>
+                <HtmlExtractor guiclass="HtmlExtractorGui" testclass="HtmlExtractor" testname="VALIDITY" enabled="true">
+                  <stringProp name="HtmlExtractor.refname">VALIDITY</stringProp>
+                  <stringProp name="HtmlExtractor.expr">#btn_LicenceStateVerified</stringProp>
+                  <stringProp name="HtmlExtractor.attribute"></stringProp>
+                  <stringProp name="HtmlExtractor.default">UNDEFINED</stringProp>
+                  <boolProp name="HtmlExtractor.default_empty_value">false</boolProp>
+                  <stringProp name="HtmlExtractor.match_number"></stringProp>
+                  <stringProp name="HtmlExtractor.extractor_impl"></stringProp>
+                </HtmlExtractor>
+                <hashTree/>
+                <JSR223PostProcessor guiclass="TestBeanGUI" testclass="JSR223PostProcessor" testname="SaveHtmlResponse" enabled="true">
+                  <stringProp name="scriptLanguage">groovy</stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="cacheKey">true</stringProp>
+                  <stringProp name="script">def status = vars.get(&quot;VALIDITY&quot;);
+
+if(status == &quot;UNDEFINED&quot;)
+{
+def filename = vars.get(&quot;VEHICLENUMBER&quot;) + &quot;response.html&quot;;
+File file = new File(&quot;responses/&quot;+filename);
+
+FileWriter fstream= new FileWriter(file,true);
+BufferedWriter out = new BufferedWriter(fstream);
+out.write(prev.getResponseDataAsString());
+out.close();
+fstream.close();
+}
+</stringProp>
+                </JSR223PostProcessor>
+                <hashTree/>
               </hashTree>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -9830,7 +10268,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">10000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime2}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -10010,7 +10448,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">10000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime2}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -10072,11 +10510,35 @@
                   </collectionProp>
                 </HeaderManager>
                 <hashTree/>
+                <BeanShellPreProcessor guiclass="TestBeanGUI" testclass="BeanShellPreProcessor" testname="BeanShell PreProcessor" enabled="true">
+                  <stringProp name="filename"></stringProp>
+                  <stringProp name="parameters"></stringProp>
+                  <boolProp name="resetInterpreter">false</boolProp>
+                  <stringProp name="script">import org.apache.jmeter.services.FileServer;
+
+String path=FileServer.getFileServer().getBaseDir();
+
+var1= vars.get(&quot;VEHICLENUMBER&quot;); 
+var2= vars.get(&quot;USERNAME&quot;);
+var3= vars.get(&quot;EXPIRE&quot;); 
+var4= vars.get(&quot;STATUS&quot;);
+var5= vars.get(&quot;VALIDITY&quot;); 
+var8 = var1+&quot;,&quot;+var2+&quot;,&quot;+var3+&quot;,&quot;+var4+&quot;,&quot;+var5;
+
+f = new FileOutputStream(&quot;ncdata.csv&quot;,true);
+p = new PrintStream(f);
+ 
+this.interpreter.setOut(p); 
+p.println(var8);
+
+f.close();</stringProp>
+                </BeanShellPreProcessor>
+                <hashTree/>
               </hashTree>
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">6000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -10142,7 +10604,7 @@
               <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -10157,10 +10619,10 @@
                 <boolProp name="displaySystemProperties">false</boolProp>
               </DebugSampler>
               <hashTree/>
-              <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="false">
+              <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
                 <intProp name="ActionProcessor.action">1</intProp>
                 <intProp name="ActionProcessor.target">0</intProp>
-                <stringProp name="ActionProcessor.duration">5000</stringProp>
+                <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
               </TestAction>
               <hashTree>
                 <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -10243,7 +10705,7 @@
             <TestAction guiclass="TestActionGui" testclass="TestAction" testname="Think Time" enabled="true">
               <intProp name="ActionProcessor.action">1</intProp>
               <intProp name="ActionProcessor.target">0</intProp>
-              <stringProp name="ActionProcessor.duration">0</stringProp>
+              <stringProp name="ActionProcessor.duration">${thinktime}</stringProp>
             </TestAction>
             <hashTree>
               <UniformRandomTimer guiclass="UniformRandomTimerGui" testclass="UniformRandomTimer" testname="Pause" enabled="true">
@@ -10385,6 +10847,43 @@
         <hashTree/>
       </hashTree>
       <ResultCollector guiclass="ViewResultsFullVisualizer" testclass="ResultCollector" testname="View Results Tree" enabled="true">
+        <boolProp name="ResultCollector.error_logging">false</boolProp>
+        <objProp>
+          <name>saveConfig</name>
+          <value class="SampleSaveConfiguration">
+            <time>true</time>
+            <latency>true</latency>
+            <timestamp>true</timestamp>
+            <success>true</success>
+            <label>true</label>
+            <code>true</code>
+            <message>true</message>
+            <threadName>true</threadName>
+            <dataType>true</dataType>
+            <encoding>false</encoding>
+            <assertions>true</assertions>
+            <subresults>true</subresults>
+            <responseData>false</responseData>
+            <samplerData>false</samplerData>
+            <xml>false</xml>
+            <fieldNames>true</fieldNames>
+            <responseHeaders>false</responseHeaders>
+            <requestHeaders>false</requestHeaders>
+            <responseDataOnError>false</responseDataOnError>
+            <saveAssertionResultsFailureMessage>true</saveAssertionResultsFailureMessage>
+            <assertionsResultsToSave>0</assertionsResultsToSave>
+            <bytes>true</bytes>
+            <sentBytes>true</sentBytes>
+            <url>true</url>
+            <threadCounts>true</threadCounts>
+            <idleTime>true</idleTime>
+            <connectTime>true</connectTime>
+          </value>
+        </objProp>
+        <stringProp name="filename"></stringProp>
+      </ResultCollector>
+      <hashTree/>
+      <ResultCollector guiclass="TableVisualizer" testclass="ResultCollector" testname="View Results in Table" enabled="true">
         <boolProp name="ResultCollector.error_logging">false</boolProp>
         <objProp>
           <name>saveConfig</name>
