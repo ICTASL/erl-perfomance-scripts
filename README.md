@@ -5,7 +5,7 @@
 3.	Modify existing script and alter Think times / Assertions / Timeouts 
 
 # Requirements:
-1. Apache JMeter 5.3
+1. Apache JMeter 5.4
 2. Java 8 +
 3. Data Files (vehicle numbers per each province and users per each province)
 Ex: westernusers.csv , western.csv ( These files should be placed in a folder named ‘Data’ inside the bin folder of Jmeter installation
